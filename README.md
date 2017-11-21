@@ -102,3 +102,14 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
 4. Otherwise, the output will appear in the `Sublime-Z Results` tab
 
 ![run tests](https://github.com/synek317/subz/raw/master/img/run_tests.gif "Run tests")
+
+## Change aclr8i path
+
+1. Open Sublime-Z settings: `Preferences -> Package Settings -> Sublime-Z -> Settings - User`
+2. Set new aclr8i path in `aclr8_path` key, e.g.
+
+```
+{
+  "aclr8_path": "/opt/aclr8i"
+}
+```
