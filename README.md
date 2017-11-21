@@ -101,4 +101,4 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
 3. If all tests pass, short message will appear in the output panel
 4. Otherwise, the output will appear in the `Sublime-Z Results` tab
 
-![run tests](https://github.com/synek317/subz/raw/master/img/run tests.gif "Run tests")
+![run tests](https://github.com/synek317/subz/raw/master/img/run_tests.gif "Run tests")
