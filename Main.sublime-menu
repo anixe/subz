@@ -1,0 +1,175 @@
+[
+  {
+    "id": "tools",
+    "caption": "Tools",
+    "children": [
+      {
+        "id": "subz",
+        "caption": "Sublime-Z",
+        "children": [
+          {
+            "id": "subz_insert_section",
+            "caption": "Insert section",
+            "children": [
+              {
+                "caption": "Insert [AVL.ALLOC] section",
+                "command": "subz_insert_section_avl_alloc",
+                "id": "subz_insert_section_avl_alloc"
+              },
+              {
+                "caption": "Insert [AVL.INV] section",
+                "command": "subz_insert_section_avl_inv",
+                "id": "subz_insert_section_avl_inv"
+              },
+              {
+                "caption": "Insert [AVL.STATE] section",
+                "command": "subz_insert_section_avl_state",
+                "id": "subz_insert_section_avl_state"
+              },
+              {
+                "caption": "Insert [CONTRACT] section (full)",
+                "command": "subz_insert_section_contract_full",
+                "id": "subz_insert_section_contract_full"
+              },
+              {
+                "caption": "Insert [CONTRACT] section (minimal)",
+                "command": "subz_insert_section_contract_minimal",
+                "id": "subz_insert_section_contract_minimal"
+              },
+              {
+                "caption": "Insert [DEF.HOTEL] section",
+                "command": "subz_insert_section_def_hotel",
+                "id": "subz_insert_section_def_hotel"
+              },
+              {
+                "caption": "Insert [DEF.MEAL] section",
+                "command": "subz_insert_section_def_meal",
+                "id": "subz_insert_section_def_meal"
+              },
+              {
+                "caption": "Insert [DEF.ROOM] section",
+                "command": "subz_insert_section_def_room",
+                "id": "subz_insert_section_def_room"
+              },
+              {
+                "caption": "Insert [QUERY.TRANSFORM] section",
+                "command": "subz_insert_section_query_transform",
+                "id": "subz_insert_section_query_transform"
+              },
+              {
+                "caption": "Insert [RATE.BASE] section",
+                "command": "subz_insert_section_rate_base",
+                "id": "subz_insert_section_rate_base"
+              },
+              {
+                "caption": "Insert [RATE.CNX] section",
+                "command": "subz_insert_section_rate_cnx",
+                "id": "subz_insert_section_rate_cnx"
+              },
+              {
+                "caption": "Insert [RATE.DISCOUNT] section",
+                "command": "subz_insert_section_rate_discount",
+                "id": "subz_insert_section_rate_discount"
+              },
+              {
+                "caption": "Insert [RATE.DISCOUNT_GROUP] section",
+                "command": "subz_insert_section_rate_discount_group",
+                "id": "subz_insert_section_rate_discount_group"
+              },
+              {
+                "caption": "Insert [RATE.PLAN] section",
+                "command": "subz_insert_section_rate_plan",
+                "id": "subz_insert_section_rate_plan"
+              },
+              {
+                "caption": "Insert [RATE.RULE] section",
+                "command": "subz_insert_section_rate_rule",
+                "id": "subz_insert_section_rate_rule"
+              },
+              {
+                "caption": "Insert [RATE.SUPPLEMENT] section",
+                "command": "subz_insert_section_rate_supplement",
+                "id": "subz_insert_section_rate_supplement"
+              },
+              {
+                "caption": "Insert [RATE.TAX] section",
+                "command": "subz_insert_section_rate_tax",
+                "id": "subz_insert_section_rate_tax"
+              },
+              {
+                "caption": "Insert [RESTRICTION] section",
+                "command": "subz_insert_section_restriction",
+                "id": "subz_insert_section_restriction"
+              },
+              {
+                "caption": "Insert [TEST] section",
+                "command": "subz_insert_section_test",
+                "id": "subz_insert_section_test"
+              }
+            ]
+          },
+          {
+            "id": "subz_aclr8",
+            "caption": "Aclr8",
+            "children": [
+              {
+                "caption": "Run aclr8 tests",
+                "command": "subz_aclr8_tests",
+                "id": "subz_aclr8_tests"
+              },
+              {
+                "caption": "Run aclr8 query",
+                "command": "subz_aclr8_query",
+                "id": "subz_aclr8_query"
+              },
+              {
+                "caption": "-"
+              },
+              {
+                "caption": "Check aclr8 version",
+                "command": "subz_aclr8_version",
+                "id": "subz_aclr8_version"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mnemonic": "n",
+    "caption": "Preferences",
+    "id": "preferences",
+    "children": [
+      {
+        "mnemonic": "P",
+        "caption": "Package Settings",
+        "id": "package-settings",
+        "children": [
+          {
+            "caption": "Sublime-Z",
+            "children": [
+              {
+                "caption": "Settings – Default",
+                "args": {
+                  "file": "${packages}/subz/subz.sublime-settings"
+                },
+                "command": "open_file"
+              },
+              {
+                "caption": "Settings – User",
+                "args": {
+                  "file": "${packages}/User/subz.sublime-settings"
+                },
+                "command": "open_file"
+              },
+              {
+                "caption": "-"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

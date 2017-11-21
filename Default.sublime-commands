@@ -1,0 +1,90 @@
+[
+  {
+    "caption": "Insert [AVL.ALLOC] section",
+    "command": "subz_insert_section_avl_alloc"
+  },
+  {
+    "caption": "Insert [AVL.INV] section",
+    "command": "subz_insert_section_avl_inv"
+  },
+  {
+    "caption": "Insert [AVL.STATE] section",
+    "command": "subz_insert_section_avl_state"
+  },
+  {
+    "caption": "Insert [CONTRACT] section (full)",
+    "command": "subz_insert_section_contract_full"
+  },
+  {
+    "caption": "Insert [CONTRACT] section (minimal)",
+    "command": "subz_insert_section_contract_minimal"
+  },
+  {
+    "caption": "Insert [DEF.HOTEL] section",
+    "command": "subz_insert_section_def_hotel"
+  },
+  {
+    "caption": "Insert [DEF.MEAL] section",
+    "command": "subz_insert_section_def_meal"
+  },
+  {
+    "caption": "Insert [DEF.ROOM] section",
+    "command": "subz_insert_section_def_room"
+  },
+  {
+    "caption": "Insert [QUERY.TRANSFORM] section",
+    "command": "subz_insert_section_query_transform"
+  },
+  {
+    "caption": "Insert [RATE.BASE] section",
+    "command": "subz_insert_section_rate_base"
+  },
+  {
+    "caption": "Insert [RATE.CNX] section",
+    "command": "subz_insert_section_rate_cnx"
+  },
+  {
+    "caption": "Insert [RATE.DISCOUNT] section",
+    "command": "subz_insert_section_rate_discount"
+  },
+  {
+    "caption": "Insert [RATE.DISCOUNT_GROUP] section",
+    "command": "subz_insert_section_rate_discount_group"
+  },
+  {
+    "caption": "Insert [RATE.PLAN] section",
+    "command": "subz_insert_section_rate_plan"
+  },
+  {
+    "caption": "Insert [RATE.RULE] section",
+    "command": "subz_insert_section_rate_rule"
+  },
+  {
+    "caption": "Insert [RATE.SUPPLEMENT] section",
+    "command": "subz_insert_section_rate_supplement"
+  },
+  {
+    "caption": "Insert [RATE.TAX] section",
+    "command": "subz_insert_section_rate_tax"
+  },
+  {
+    "caption": "Insert [RESTRICTION] section",
+    "command": "subz_insert_section_restriction"
+  },
+  {
+    "caption": "Insert [TEST] section",
+    "command": "subz_insert_section_test"
+  },
+  {
+    "caption": "Check aclr8 version",
+    "command": "subz_aclr8_version"
+  },
+  {
+    "caption": "Run aclr8 tests",
+    "command": "subz_aclr8_tests"
+  },
+  {
+    "caption": "Run aclr8 query",
+    "command": "subz_aclr8_query"
+  }
+]
