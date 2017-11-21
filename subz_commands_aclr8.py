@@ -29,11 +29,10 @@ class SubzAclr8Tests(sublime_plugin.WindowCommand):
       os.remove(path)
 
 class SubzAclr8Query(sublime_plugin.WindowCommand):
-  def run(self):
-    path, is_temporary = save_ion()
-    today = datetime.date.today()
-    checkin = datetime.date.today()
+  last_query = None
 
+  def run(self):
+    today = datetime.date.today()
     checkin = datetime.datetime(year=today.year + 1, month=1, day=1)
 
     today_formatted = today.strftime("%Y%m%d")
@@ -41,10 +40,14 @@ class SubzAclr8Query(sublime_plugin.WindowCommand):
 
     ask_user(
       "Enter the query: ",
-      "HB{0}$TEST:TEST/{1}+1/A1".format(today_formatted, checkin_formatted),
-      lambda query:
-        run_aclr8_command("repl " + path, lambda output: self.on_success(output, path, is_temporary), lambda: self.on_fail(path, is_temporary), query)
+      SubzAclr8Query.last_query or "HB{0}$TEST:TEST/{1}+1/A1".format(today_formatted, checkin_formatted),
+      self.run_aclr8_command
     )
+
+  def run_aclr8_command(self, query):
+    path, is_temporary = save_ion()
+    SubzAclr8Query.last_query = query
+    run_aclr8_command("repl " + path, lambda output: self.on_success(output, path, is_temporary), lambda: self.on_fail(path, is_temporary), query)
 
   def on_success(self, output, path, is_temporary):
     append_output_panel(output)
