@@ -27,7 +27,8 @@ def which(program):
 
   return None
 
-def run(cmd_and_args, stdin=None):
+def run(cmd, args, stdin=None):
+  cmd_and_args = '"{}" {}'.format(cmd, args)
   child     = subprocess.Popen(cmd_and_args, shell=True, stdout=PIPE, stderr=PIPE, stdin=PIPE)
   raw_stdin = stdin.encode('utf-8') if stdin != None else None
   raw_stdout, raw_stderr = child.communicate(input=raw_stdin)

@@ -49,7 +49,7 @@ def run_aclr8(path, params, stdin=None):
   if is_aclr8_source_dir(path):
     exe = "cargo run --manifest-path " + get_repl_cargo_path(path) + " --"
 
-  return run(exe + " " + params, stdin)
+  return run(exe, params, stdin)
 
 
 def find_aclr8(path):
@@ -66,8 +66,8 @@ def find_aclr8(path):
 def is_aclr8(path):
   if not is_exe(path):
     return False
-  stdout, _stderr, errcode, _cmd = run(path + " --version")
 
+  stdout, _stderr, errcode, _cmd = run(path, "--version")
   return errcode == 0 and stdout.startswith("aclr8i ")
 
 def is_aclr8_source_dir(path):
