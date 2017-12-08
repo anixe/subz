@@ -47,7 +47,8 @@ def run_aclr8(path, params, stdin=None):
   exe = path
 
   if is_aclr8_source_dir(path):
-    exe = "cargo run --manifest-path " + get_repl_cargo_path(path) + " --"
+    exe = "cargo"
+    params = "run --manifest-path " + get_repl_cargo_path(path) + " -- " + params
 
   return run(exe, params, stdin)
 
