@@ -10,6 +10,7 @@ Sublime-Z is a plugin for Sublime Text 3 to edit and test ARIZ files.
 - Run aclr8 tests
 - Run single query
 - Check aclr8 version
+- Filter Ion
 - Make use of ANSI escape codes when [ANSIescape](https://github.com/aziz/SublimeANSI) plugin in installed
 
 ![demo](https://github.com/synek317/subz/raw/master/img/demo.gif "Demo")
@@ -113,3 +114,45 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
   "aclr8_path": "/opt/aclr8i"
 }
 ```
+
+## Filter Ion
+
+1. Create ARIZ as described previously
+2. Open Filter input
+  a. with mouse: choose `Tools -> Sublime-Z -> Filter Ion`
+  b. with keyboard: press `[shift] + [ctrl] + p` to open command input and then type `Filter Ion`
+  c. with keyboard shortcut: press `[ctrl] + i, o` to open command input
+    Required three groups of arguments separated by ":" -  search_arguments:section_arguments:text_to_search
+    Options:
+      Search arguments (can be separated by comma delimiter):
+        r - regex search,
+        s - string search (DEFAULT),
+        d - date search,
+        i - lines including search text (DEFAULT),
+        e - lines excluding search text
+      Sections arguments (can be separated by comma delimiter):
+        ba - sections: RATE.BASE, RATE.SUPPLEMENT, RATE.DISCOUNT, RATE.RULE, RESTRICTION, DEF.ROOM,
+        te - TEST,
+        co - CONTRACT,
+        dh - DEF.HOTEL,
+        dm - DEF.MEAL,
+        dr - DEF.ROOM,
+        rp - RATE.PLAN,
+        rb - RATE.BASE,
+        ru - RATE.RULE,
+        rs - RATE.SUPPLEMENT,
+        rd - RATE.DISCOUNT,
+        dg - RATE.DISCOUNT_GROUP,
+        rr - RESTRICTION,
+        qt - QUERY.TRANSFORM,
+        rc - RATE.CNX,
+        rt - RATE.TAX,
+        rm - RATE.MARKUP,
+        aa - AVL.ALLOC,
+        as - AVL.STATE,
+        ai - AVL.INV,
+    Example commands:
+      :dr:P1:2 - search for lines including string P1:2 in DEF.ROOM section
+      de:rb:20180101:20180110 - search for lines in RATE.BASE section which dose not contain passed date in section DATES column
+      ri:rsrd:P[1-2] - search lines matching regex in RATE.SUPPLEMENT and RATE.DISCOUNT sections
+3. To display help write `h` and press Enter

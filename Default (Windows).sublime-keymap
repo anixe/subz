@@ -1,0 +1,3 @@
+[  
+    { "keys": ["ctrl+i", "ctrl+o"], "command": "subz_prompt_ion_filter_to_lines" }
+] 

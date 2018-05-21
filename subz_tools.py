@@ -14,3 +14,9 @@ def get_show_ansi_escape_hint():
 
 def set_show_ansi_escape_hint(value):
   settings().set("show_ansi_escape_hint", value)
+
+def get_latest_search():
+  return settings().get("latest_search", "::")
+
+def set_latest_search(value):
+  settings().set("latest_search", value)
