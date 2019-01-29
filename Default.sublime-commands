@@ -86,5 +86,9 @@
   {
     "caption": "Run aclr8 query",
     "command": "subz_aclr8_query"
+  },
+  {
+    "caption": "Filter Ion",
+    "command": "subz_prompt_ion_filter_to_lines"
   }
 ]

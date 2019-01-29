@@ -131,6 +131,672 @@
                 "id": "subz_aclr8_version"
               }
             ]
+          },
+          {
+            "id": "subz_filter_ion",
+            "caption": "Filter Ion",
+            "children": [
+              {
+                "caption": "Include",
+                "id": "subz_filter_ion_include",
+                "children": [
+                  {
+                    "caption": "String",
+                    "id": "subz_filter_ion_include_string",
+                    "children": [
+                      {
+                        "caption": "[TEST]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:te:" },
+                        "id": "subz_filter_ion_include_string_test"
+                      },
+                      {
+                        "caption": "[CONTRACT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:co:" },
+                        "id": "subz_filter_ion_include_string_contract"
+                      },
+                      {
+                        "caption": "[DEF.HOTEL]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:dh:" },
+                        "id": "subz_filter_ion_include_string_def_hotel"
+                      },
+                      {
+                        "caption": "[DEF.MEAL]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:dm:" },
+                        "id": "subz_filter_ion_include_string_def_meal"
+                      },
+                      {
+                        "caption": "[DEF.ROOM]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:dr:" },
+                        "id": "subz_filter_ion_include_string_def_room"
+                      },
+                      {
+                        "caption": "[RATE.PLAN]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:rp:" },
+                        "id": "subz_filter_ion_include_string_rate_plan"
+                      },
+                      {
+                        "caption": "[RATE.BASE]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:rb:" },
+                        "id": "subz_filter_ion_include_string_rate_base"
+                      },
+                      {
+                        "caption": "[RATE.RULE]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:ru:" },
+                        "id": "subz_filter_ion_include_string_rate_rule"
+                      },
+                      {
+                        "caption": "[RATE.SUPPLEMENT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:rs:" },
+                        "id": "subz_filter_ion_include_string_rate_supplement"
+                      },
+                      {
+                        "caption": "[RATE.DISCOUNT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:rd:" },
+                        "id": "subz_filter_ion_include_string_rate_discount"
+                      },
+                      {
+                        "caption": "[RATE.DISCOUNT_GROUP]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:dg:" },
+                        "id": "subz_filter_ion_include_string_rate_discount_group"
+                      },
+                      {
+                        "caption": "[RESTRICTION]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:rr:" },
+                        "id": "subz_filter_ion_include_string_restriction"
+                      },
+                      {
+                        "caption": "[QUERY.TRANSFORM]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:qt:" },
+                        "id": "subz_filter_ion_include_string_query_transform"
+                      },
+                      {
+                        "caption": "[RATE.CNX]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:rc:" },
+                        "id": "subz_filter_ion_include_string_rate_cnx"
+                      },
+                      {
+                        "caption": "[RATE.TAX]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:rt:" },
+                        "id": "subz_filter_ion_include_string_rate_tax"
+                      },
+                      {
+                        "caption": "[RATE.MARKUP]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:rm:" },
+                        "id": "subz_filter_ion_include_string_rate_markup"
+                      },
+                      {
+                        "caption": "[AVL.ALLOC]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:aa:" },
+                        "id": "subz_filter_ion_include_string_avl_alloc"
+                      },
+                      {
+                        "caption": "[AVL.STATE]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:as" },
+                        "id": "subz_filter_ion_include_string_avl_state"
+                      },
+                      {
+                        "caption": "[AVL.INV]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:ai" },
+                        "id": "subz_filter_ion_include_string_avl_inv"
+                      }
+                    ]
+                  },
+                  {
+                    "caption": "Regex",
+                    "id": "subz_filter_ion_include_regex",
+                    "children": [
+                      {
+                        "caption": "[TEST]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:te:" },
+                        "id": "subz_filter_ion_include_regex_test"
+                      },
+                      {
+                        "caption": "[CONTRACT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:co:" },
+                        "id": "subz_filter_ion_include_regex_contract"
+                      },
+                      {
+                        "caption": "[DEF.HOTEL]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:dh:" },
+                        "id": "subz_filter_ion_include_regex_def_hotel"
+                      },
+                      {
+                        "caption": "[DEF.MEAL]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:dm:" },
+                        "id": "subz_filter_ion_include_regex_def_meal"
+                      },
+                      {
+                        "caption": "[DEF.ROOM]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:dr:" },
+                        "id": "subz_filter_ion_include_regex_def_room"
+                      },
+                      {
+                        "caption": "[RATE.PLAN]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:rp:" },
+                        "id": "subz_filter_ion_include_regex_rate_plan"
+                      },
+                      {
+                        "caption": "[RATE.BASE]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:rb:" },
+                        "id": "subz_filter_ion_include_regex_rate_base"
+                      },
+                      {
+                        "caption": "[RATE.RULE]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:ru:" },
+                        "id": "subz_filter_ion_include_regex_rate_rule"
+                      },
+                      {
+                        "caption": "[RATE.SUPPLEMENT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:rs:" },
+                        "id": "subz_filter_ion_include_regex_rate_supplement"
+                      },
+                      {
+                        "caption": "[RATE.DISCOUNT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:rd:" },
+                        "id": "subz_filter_ion_include_regex_rate_discount"
+                      },
+                      {
+                        "caption": "[RATE.DISCOUNT_GROUP]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:dg:" },
+                        "id": "subz_filter_ion_include_regex_rate_discount_group"
+                      },
+                      {
+                        "caption": "[RESTRICTION]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:rr:" },
+                        "id": "subz_filter_ion_include_regex_restriction"
+                      },
+                      {
+                        "caption": "[QUERY.TRANSFORM]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:qt:" },
+                        "id": "subz_filter_ion_include_regex_query_transform"
+                      },
+                      {
+                        "caption": "[RATE.CNX]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:rc:" },
+                        "id": "subz_filter_ion_include_regex_rate_cnx"
+                      },
+                      {
+                        "caption": "[RATE.TAX]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:rt:" },
+                        "id": "subz_filter_ion_include_regex_rate_tax"
+                      },
+                      {
+                        "caption": "[RATE.MARKUP]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:rm:" },
+                        "id": "subz_filter_ion_include_regex_rate_markup"
+                      },
+                      {
+                        "caption": "[AVL.ALLOC]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:aa:" },
+                        "id": "subz_filter_ion_include_regex_avl_alloc"
+                      },
+                      {
+                        "caption": "[AVL.STATE]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:as" },
+                        "id": "subz_filter_ion_include_regex_avl_state"
+                      },
+                      {
+                        "caption": "[AVL.INV]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:ai" },
+                        "id": "subz_filter_ion_include_regex_avl_inv"
+                      }
+                    ]
+                  },
+                  {
+                    "caption": "Date",
+                    "id": "subz_filter_ion_include_date",
+                    "children": [
+                      {
+                        "caption": "[TEST]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:te:" },
+                        "id": "subz_filter_ion_include_date_test"
+                      },
+                      {
+                        "caption": "[DEF.HOTEL]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:dh:" },
+                        "id": "subz_filter_ion_include_date_def_hotel"
+                      },
+                      {
+                        "caption": "[RATE.BASE]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:rb:" },
+                        "id": "subz_filter_ion_include_date_rate_base"
+                      },
+                      {
+                        "caption": "[RATE.RULE]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:ru:" },
+                        "id": "subz_filter_ion_include_date_rate_rule"
+                      },
+                      {
+                        "caption": "[RATE.SUPPLEMENT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:rs:" },
+                        "id": "subz_filter_ion_include_date_rate_supplement"
+                      },
+                      {
+                        "caption": "[RATE.DISCOUNT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:rd:" },
+                        "id": "subz_filter_ion_include_date_rate_discount"
+                      },
+                      {
+                        "caption": "[RESTRICTION]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:rr:" },
+                        "id": "subz_filter_ion_include_date_restriction"
+                      },
+                      {
+                        "caption": "[RATE.CNX]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:rc:" },
+                        "id": "subz_filter_ion_include_date_rate_cnx"
+                      },
+                      {
+                        "caption": "[RATE.TAX]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:rt:" },
+                        "id": "subz_filter_ion_include_date_rate_tax"
+                      },
+                      {
+                        "caption": "[RATE.MARKUP]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:rm:" },
+                        "id": "subz_filter_ion_include_date_rate_markup"
+                      },
+                      {
+                        "caption": "[AVL.ALLOC]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:aa:" },
+                        "id": "subz_filter_ion_include_date_avl_alloc"
+                      },
+                      {
+                        "caption": "[AVL.STATE]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:as" },
+                        "id": "subz_filter_ion_include_date_avl_state"
+                      },
+                      {
+                        "caption": "[AVL.INV]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "di:ai" },
+                        "id": "subz_filter_ion_include_date_avl_inv"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "caption": "Exclude",
+                "id": "subz_filter_ion_exclude",
+                "children": [
+                  {
+                  "caption": "String",
+                  "id": "subz_filter_ion_exclude_string",
+                  "children": [
+                    {
+                      "caption": "[TEST]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:te:" },
+                      "id": "subz_filter_ion_exclude_string_test"
+                    },
+                    {
+                      "caption": "[CONTRACT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:co:" },
+                      "id": "subz_filter_ion_exclude_string_contract"
+                    },
+                    {
+                      "caption": "[DEF.HOTEL]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:dh:" },
+                      "id": "subz_filter_ion_exclude_string_def_hotel"
+                    },
+                    {
+                      "caption": "[DEF.MEAL]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:dm:" },
+                      "id": "subz_filter_ion_exclude_string_def_meal"
+                    },
+                    {
+                      "caption": "[DEF.ROOM]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:dr:" },
+                      "id": "subz_filter_ion_exclude_string_def_room"
+                    },
+                    {
+                      "caption": "[RATE.PLAN]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:rp:" },
+                      "id": "subz_filter_ion_exclude_string_rate_plan"
+                    },
+                    {
+                      "caption": "[RATE.BASE]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:rb:" },
+                      "id": "subz_filter_ion_exclude_string_rate_base"
+                    },
+                    {
+                      "caption": "[RATE.RULE]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:ru:" },
+                      "id": "subz_filter_ion_exclude_string_rate_rule"
+                    },
+                    {
+                      "caption": "[RATE.SUPPLEMENT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:rs:" },
+                      "id": "subz_filter_ion_exclude_string_rate_supplement"
+                    },
+                    {
+                      "caption": "[RATE.DISCOUNT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:rd:" },
+                      "id": "subz_filter_ion_exclude_string_rate_discount"
+                    },
+                    {
+                      "caption": "[RATE.DISCOUNT_GROUP]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:dg:" },
+                      "id": "subz_filter_ion_exclude_string_rate_discount_group"
+                    },
+                    {
+                      "caption": "[RESTRICTION]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:rr:" },
+                      "id": "subz_filter_ion_exclude_string_restriction"
+                    },
+                    {
+                      "caption": "[QUERY.TRANSFORM]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:qt:" },
+                      "id": "subz_filter_ion_exclude_string_query_transform"
+                    },
+                    {
+                      "caption": "[RATE.CNX]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:rc:" },
+                      "id": "subz_filter_ion_exclude_string_rate_cnx"
+                    },
+                    {
+                      "caption": "[RATE.TAX]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:rt:" },
+                      "id": "subz_filter_ion_exclude_string_rate_tax"
+                    },
+                    {
+                      "caption": "[RATE.MARKUP]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:rm:" },
+                      "id": "subz_filter_ion_exclude_string_rate_markup"
+                    },
+                    {
+                      "caption": "[AVL.ALLOC]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:aa:" },
+                      "id": "subz_filter_ion_exclude_string_avl_alloc"
+                    },
+                    {
+                      "caption": "[AVL.STATE]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:as" },
+                      "id": "subz_filter_ion_exclude_string_avl_state"
+                    },
+                    {
+                      "caption": "[AVL.INV]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:ai" },
+                      "id": "subz_filter_ion_exclude_string_avl_inv"
+                    }
+                  ]
+                  },
+                  {
+                  "caption": "Regex",
+                  "id": "subz_filter_ion_exclude_regex",
+                  "children": [
+                    {
+                      "caption": "[TEST]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:te:" },
+                      "id": "subz_filter_ion_exclude_regex_test"
+                    },
+                    {
+                      "caption": "[CONTRACT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:co:" },
+                      "id": "subz_filter_ion_exclude_regex_contract"
+                    },
+                    {
+                      "caption": "[DEF.HOTEL]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:dh:" },
+                      "id": "subz_filter_ion_exclude_regex_def_hotel"
+                    },
+                    {
+                      "caption": "[DEF.MEAL]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:dm:" },
+                      "id": "subz_filter_ion_exclude_regex_def_meal"
+                    },
+                    {
+                      "caption": "[DEF.ROOM]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:dr:" },
+                      "id": "subz_filter_ion_exclude_regex_def_room"
+                    },
+                    {
+                      "caption": "[RATE.PLAN]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:rp:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_plan"
+                    },
+                    {
+                      "caption": "[RATE.BASE]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:rb:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_base"
+                    },
+                    {
+                      "caption": "[RATE.RULE]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:ru:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_rule"
+                    },
+                    {
+                      "caption": "[RATE.SUPPLEMENT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:rs:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_supplement"
+                    },
+                    {
+                      "caption": "[RATE.DISCOUNT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:rd:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_discount"
+                    },
+                    {
+                      "caption": "[RATE.DISCOUNT_GROUP]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:dg:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_discount_group"
+                    },
+                    {
+                      "caption": "[RESTRICTION]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:rr:" },
+                      "id": "subz_filter_ion_exclude_regex_restriction"
+                    },
+                    {
+                      "caption": "[QUERY.TRANSFORM]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:qt:" },
+                      "id": "subz_filter_ion_exclude_regex_query_transform"
+                    },
+                    {
+                      "caption": "[RATE.CNX]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:rc:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_cnx"
+                    },
+                    {
+                      "caption": "[RATE.TAX]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:rt:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_tax"
+                    },
+                    {
+                      "caption": "[RATE.MARKUP]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:rm:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_markup"
+                    },
+                    {
+                      "caption": "[AVL.ALLOC]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:aa:" },
+                      "id": "subz_filter_ion_exclude_regex_avl_alloc"
+                    },
+                    {
+                      "caption": "[AVL.STATE]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:as" },
+                      "id": "subz_filter_ion_exclude_regex_avl_state"
+                    },
+                    {
+                      "caption": "[AVL.INV]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:ai" },
+                      "id": "subz_filter_ion_exclude_regex_avl_inv"
+                    }
+                  ]
+                  },
+                  {
+                  "caption": "Date",
+                  "id": "subz_filter_ion_exclude_date",
+                  "children": [
+                    {
+                      "caption": "[TEST]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:te:" },
+                      "id": "subz_filter_ion_exclude_date_test"
+                    },
+                    {
+                      "caption": "[DEF.HOTEL]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:dh:" },
+                      "id": "subz_filter_ion_exclude_date_def_hotel"
+                    },
+                    {
+                      "caption": "[RATE.BASE]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:rb:" },
+                      "id": "subz_filter_ion_exclude_date_rate_base"
+                    },
+                    {
+                      "caption": "[RATE.RULE]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:ru:" },
+                      "id": "subz_filter_ion_exclude_date_rate_rule"
+                    },
+                    {
+                      "caption": "[RATE.SUPPLEMENT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:rs:" },
+                      "id": "subz_filter_ion_exclude_date_rate_supplement"
+                    },
+                    {
+                      "caption": "[RATE.DISCOUNT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:rd:" },
+                      "id": "subz_filter_ion_exclude_date_rate_discount"
+                    },
+                    {
+                      "caption": "[RESTRICTION]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:rr:" },
+                      "id": "subz_filter_ion_exclude_date_restriction"
+                    },
+                    {
+                      "caption": "[RATE.CNX]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:rc:" },
+                      "id": "subz_filter_ion_exclude_date_rate_cnx"
+                    },
+                    {
+                      "caption": "[RATE.TAX]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:rt:" },
+                      "id": "subz_filter_ion_exclude_date_rate_tax"
+                    },
+                    {
+                      "caption": "[RATE.MARKUP]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:rm:" },
+                      "id": "subz_filter_ion_exclude_date_rate_markup"
+                    },
+                    {
+                      "caption": "[AVL.ALLOC]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:aa:" },
+                      "id": "subz_filter_ion_exclude_date_avl_alloc"
+                    },
+                    {
+                      "caption": "[AVL.STATE]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:as" },
+                      "id": "subz_filter_ion_exclude_date_avl_state"
+                    },
+                    {
+                      "caption": "[AVL.INV]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "de:ai" },
+                      "id": "subz_filter_ion_exclude_date_avl_inv"
+                    }
+                  ]
+                  }
+                ]
+              }
+            ]
           }
         ]
       }

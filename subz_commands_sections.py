@@ -93,20 +93,20 @@ class SubzInsertSectionDefMeal(sublime_plugin.TextCommand):
 class SubzInsertSectionDefRoom(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[DEF.ROOM]
-| room | description | occupancy | group | facilities | base_meal | props |
-|------|-------------|-----------|-------|------------|-----------|-------|
-|      |             |           |       |            |           |       |
+| code | description | occupancy | group | properties | base_meal |
+|------|-------------|-----------|-------|------------|-----------|
+|      |             |           |       |            |           |
 
 """)
 
 class SubzInsertSectionQueryTransform(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[QUERY.TRANSFORM]
-|  occupancy   | func | args |
-|--------------|------|------|
-| A*C*         | ASC  |      |
-| C1[0:1]      | DEL  |      |
-| A1C1[14:255] | SUB  | A2   |
+|  occupancy   | func | args | rate_rules |
+|--------------|------|------|------------|
+| A*C*         | ASC  |      |            |
+| C1[0:1]      | DEL  |      |            |
+| A1C1[14:255] | SUB  | A2   |            |
 
 """)
 
