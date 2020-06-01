@@ -225,3 +225,14 @@ def section_basic_header(section_lines):
     return section_lines[0]
   else:
     return section_lines[0] + section_lines[1] + section_lines[2]
+
+def get_contract_section_string_type_value(view, field, default_value):
+  regex = field + r"\s?=\s?\".*\"\n"
+  region = view.find(regex, 0)
+  line = view.substr(region)
+
+  splitted_line = line.split('"')
+  if len(splitted_line) != 3:
+    return default_value
+
+  return splitted_line[1]
