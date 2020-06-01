@@ -27,9 +27,9 @@ class SubzInsertSectionAvlInv(sublime_plugin.TextCommand):
 class SubzInsertSectionAvlState(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[AVL.STATE]
-| dates | room | rules | status | count | remark |
-|-------|------|-------|--------|-------|--------|
-|       |      |       |        |       |        |
+| dates | room | rules | status | cnt | remark |
+|-------|------|-------|--------|-----|--------|
+|       |      |       |        |     |        |
 
 """)
 
@@ -44,18 +44,26 @@ hotel_code = "TEST"
 city = "TEST"
 booking = "20000101:29991210"
 markets = ["TEST"]
+markets_excluded = ["pl"]
 clients = ["TEST"]
+clients_excluded = ["TEST"]
 brands = ["TEST"]
 destinations = ["TEST"]
 source = "TEST"
-update_mode = "W"
 channel = "TEST"
+sales_channel = "TEST"
 channel_hotel_code = "TEST"
 scrape = false
 revision = 0
 type = "D"
-timezone = "CET"
+tz = "CET"
 missing_avl_eq_to_no_avl = false
+purchase_id = "TEST"
+tenant = "test"
+source_contract_id = "TEST_123"
+parent_id = "TEST_1"
+default_meal = "per_room"
+product = "hotel"
 
 """)
 
@@ -71,6 +79,15 @@ source = "TEST"
 
 """)
 
+class SubzInsertSectionContractSpo(sublime_plugin.TextCommand):
+  def run(self, edit):
+    insert_ariz_section(self, edit, """[CONTRACT]
+parent_id = "TEST_1"
+spo_prio = "1"
+spo_codes = ["TEST"]
+
+""")
+
 class SubzInsertSectionDefHotel(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[DEF.HOTEL]
@@ -83,9 +100,9 @@ class SubzInsertSectionDefHotel(sublime_plugin.TextCommand):
 class SubzInsertSectionDefMeal(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[DEF.MEAL]
-| meal | description | group |
-|------|-------------|-------|
-|      |             |       |
+| code | description | grp |
+|------|-------------|-----|
+|      |             |     |
 
 """)
 
@@ -93,9 +110,9 @@ class SubzInsertSectionDefMeal(sublime_plugin.TextCommand):
 class SubzInsertSectionDefRoom(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[DEF.ROOM]
-| code | description | occupancy | group | properties | base_meal |
-|------|-------------|-----------|-------|------------|-----------|
-|      |             |           |       |            |           |
+| code | description | occ | grp | properties | base_meal |
+|------|-------------|-----|-----|------------|-----------|
+|      |             |     |     |            |           |
 
 """)
 
@@ -113,43 +130,43 @@ class SubzInsertSectionQueryTransform(sublime_plugin.TextCommand):
 class SubzInsertSectionRateBase(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[RATE.BASE]
-| dates | charge | room | occupancy | meal | amount | query | rate_plan | id |
-|-------|--------|------|-----------|------|--------|-------|-----------|----|
-|       |        |      |           |      |        |       |           |    |
+| dates | charge | room | occ | meal | amount | rules | rp | id |
+|-------|--------|------|-----|------|--------|-------|----|----|
+|       |        |      |     |      |        |       |    |    |
 
 """)
 
 class SubzInsertSectionRateCnx(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[RATE.CNX]
-| arrival | time_to_arrival | rate_rules | query_rules | rate_plan | applicative | cost | remark | id |
-|---------|-----------------|------------|-------------|-----------|-------------|------|--------|----|
-|         |                 |            |             |           |             |      |        |    |
+| dates | time | room | rules | rp | applic | calc | remark | id |
+|-------|------|------|-------|----|--------|------|--------|----|
+|       |      |      |       |    |        |      |        |    |
 
 """)
 
 class SubzInsertSectionRateDiscount(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[RATE.DISCOUNT]
-| dates | query | rate | component | occupancy | applicative | reduction | remark | rate_plan | id |
-|-------|-------|------|-----------|-----------|-------------|-----------|--------|-----------|----|
-|       |       |      |           |           |             |           |        |           |  0 |
+| dates | rules | rate | comp | occ | applic | reduct | remark | rp | id |
+|-------|-------|------|------|-----|--------|--------|--------|----|----|
+|       |       |      |      |     |        |        |        |    |  0 |
 
 """)
 
 class SubzInsertSectionRateDiscountGroup(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[RATE.DISCOUNT_GROUP]
-| combine |
-|---------|
-|         |
+| disc_id/group_id | group_id | strategy | name |
+|------------------|----------|----------|------|
+|                  |          |          |      |
 
 """)
 
 class SubzInsertSectionRatePlan(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[RATE.PLAN]
-| dates | code | description | rooms | query | props |
+| dates | code | description | rooms | rules | props |
 |-------|------|-------------|-------|-------|-------|
 |       |      |             |       |       |       |
 
@@ -158,36 +175,36 @@ class SubzInsertSectionRatePlan(sublime_plugin.TextCommand):
 class SubzInsertSectionRateRule(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[RATE.RULE]
-| dates | room | occupancy | meal | rules | rate_plan |
-|-------|------|-----------|------|-------|-----------|
-|       |      |           |      |       |           |
+| dates | room | when | meal | rules | rp |
+|-------|------|------|------|-------|----|
+|       |      |      |      |       |    |
 
 """)
 
 class SubzInsertSectionRateSupplement(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[RATE.SUPPLEMENT]
-| dates | query | rate | component | occupancy | kind | charge | calc | remark | rate_plan | id |
-|-------|-------|------|-----------|-----------|------|--------|------|--------|-----------|----|
-|       |       |      |           |           |      |        |      |        |           |    |
+| dates | rules | rate | comp | occ | kind | chg | calc | remark | rp | id |
+|-------|-------|------|------|-----|------|-----|------|--------|----|----|
+|       |       |      |      |     |      |     |      |        |    | 0  |
 
 """)
 
-class SubzInsertSectionRateTax(sublime_plugin.TextCommand):
+class SubzInsertSectionTax(sublime_plugin.TextCommand):
   def run(self, edit):
-    insert_ariz_section(self, edit, """[RATE.TAX]
-| dates | rate | occupancy | charge_type | charge_amt | charge_max | remark | priority | id |
-|-------|------|-----------|-------------|------------|------------|--------|----------|----|
-|       |      |           |             |            |            |        |        0 |  0 |
+    insert_ariz_section(self, edit, """[TAX]
+| dates | rules | rate | comp | occ | applic | calc | remark | id |
+|-------|-------|------|------|-----|--------|------|--------|----|
+|       |       |      |      |     |        |      |        |  0 |
 
 """)
 
 class SubzInsertSectionRestriction(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, """[RESTRICTION]
-| room | occupancy | meal | rate_plan | forbid | remark | id |
-|------|-----------|------|-----------|--------|--------|----|
-|      |           |      |           |        |        |    |
+| room | occupancy | meal | rp | forbid | remark | id |
+|------|-----------|------|----|--------|--------|----|
+|      |           |      |    |        |        |  0 |
 
 """)
 
@@ -200,3 +217,38 @@ class SubzInsertSectionTest(sublime_plugin.TextCommand):
 
 """)
 
+class SubzInsertSectionRateSupplementCat(sublime_plugin.TextCommand):
+  def run(self, edit):
+    insert_ariz_section(self, edit, """[RATE.SUPPLEMENT_CAT]
+| cat | id | name |
+|-----|----|------|
+|     |    |      |
+
+""")
+
+class SubzInsertSectionRateDiscountCat(sublime_plugin.TextCommand):
+  def run(self, edit):
+    insert_ariz_section(self, edit, """[RATE.DISCOUNT_CAT]
+| cat | id | name |
+|-----|----|------|
+|     |    |      |
+
+""")
+
+class SubzInsertSectionConfig(sublime_plugin.TextCommand):
+  def run(self, edit):
+    insert_ariz_section(self, edit, """[CONFIG]
+| name | value | remark |
+|------|-------|--------|
+|      |       |        |
+
+""")
+
+class SubzInsertSectionCustomInfo(sublime_plugin.TextCommand):
+  def run(self, edit):
+    insert_ariz_section(self, edit, """[CUSTOM_INFO]
+| name | value | remark |
+|------|-------|--------|
+|      |       |        |
+
+""")

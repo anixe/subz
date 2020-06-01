@@ -141,18 +141,22 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
         rb - RATE.BASE,
         ru - RATE.RULE,
         rs - RATE.SUPPLEMENT,
+        sc - RATE.SUPPLEMENT_CAT,
         rd - RATE.DISCOUNT,
+        dc - RATE.DISCOUNT_CAT,
         dg - RATE.DISCOUNT_GROUP,
         rr - RESTRICTION,
         qt - QUERY.TRANSFORM,
         rc - RATE.CNX,
-        rt - RATE.TAX,
+        ta - TAX,
         rm - RATE.MARKUP,
         aa - AVL.ALLOC,
         as - AVL.STATE,
         ai - AVL.INV,
+        cf - CONFIG,
+        ci - CUSTOM_INFO
     Example commands:
-      :dr:P1:2 - search for lines including string P1:2 in DEF.ROOM section
-      de:rb:20180101:20180110 - search for lines in RATE.BASE section which dose not contain passed date in section DATES column
-      ri:rsrd:P[1-2] - search lines matching regex in RATE.SUPPLEMENT and RATE.DISCOUNT sections
+      `:dr:P1:2` - search for lines including string `P1:2` in `DEF.ROOM` section
+      `de:rb:20180101:20180110` - search for lines in `RATE.BASE` section which dose not contain passed date in section `DATES` column
+      `ri:rs,rd:P[1-2]` - search lines matching regex in `RATE.SUPPLEMENT` and `RATE.DISCOUNT` sections
 3. To display help write `h` and press Enter

@@ -92,8 +92,8 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             sections_to_filter.append(SectionType.QueryTransform)
         if 'rc' in arguments:
             sections_to_filter.append(SectionType.RateCnx)
-        if 'rt' in arguments:
-            sections_to_filter.append(SectionType.RateTax)
+        if 'ta' in arguments:
+            sections_to_filter.append(SectionType.Tax)
         if 'rm' in arguments:
             sections_to_filter.append(SectionType.RateMarkup)
         if 'aa' in arguments:
@@ -102,6 +102,14 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             sections_to_filter.append(SectionType.AvlState)
         if 'ai' in arguments:
             sections_to_filter.append(SectionType.AvlInv)
+        if 'rdc' in arguments:
+            sections_to_filter.append(SectionType.RateDiscountCat)
+        if 'rsc' in arguments:
+            sections_to_filter.append(SectionType.RateSupplementalCat)
+        if 'cfg' in arguments:
+            sections_to_filter.append(SectionType.Config)
+        if 'ci' in arguments:
+            sections_to_filter.append(SectionType.CustomInfo)
         if 'ba' in arguments:
             sections_to_filter.append(SectionType.RateSupplement)
             sections_to_filter.append(SectionType.RateDiscount)
@@ -145,8 +153,8 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             return SectionType.RateDiscountGroup
         elif "[RATE.CNX]" in line:
             return SectionType.RateCnx
-        elif "[RATE.TAX]" in line:
-            return SectionType.RateTax
+        elif "[TAX]" in line:
+            return SectionType.Tax
         elif "[RATE.MARKUP]" in line:
             return SectionType.RateMarkup
         elif "[RESTRICTION]" in line:
@@ -159,6 +167,14 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             return SectionType.AvlState
         elif "[AVL.INV]" in line:
             return SectionType.AvlInv
+        elif "[RATE.DISCOUNT_CAT]" in line:
+            return SectionType.RateDiscountCat
+        elif "[RATE.SUPPLEMENT_CAT]" in line:
+            return SectionType.RateSupplementalCat
+        elif "[CONFIG]" in line:
+            return SectionType.Config
+        elif "[CUSTOM_INFO]" in line:
+            return SectionType.CustomInfo
         else:
             return SectionType.Other
 
@@ -262,23 +278,27 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
         results_view.set_syntax_file(self.view.settings().get('syntax'))
 
 class SectionType():
-    Test              = 0
-    Contract          = 1
-    DefHotel          = 2
-    DefMeal           = 3
-    DefRoom           = 4
-    RatePlan          = 5
-    RateBase          = 6
-    RateRule          = 7
-    RateSupplement    = 8
-    RateDiscount      = 9
-    RateDiscountGroup = 10
-    Restriction       = 11
-    QueryTransform    = 12
-    RateCnx           = 13
-    RateTax           = 14
-    RateMarkup        = 15
-    AvlAlloc          = 16
-    AvlState          = 17
-    AvlInv            = 18
-    Other             = 19
+    Test                = 0
+    Contract            = 1
+    DefHotel            = 2
+    DefMeal             = 3
+    DefRoom             = 4
+    RatePlan            = 5
+    RateBase            = 6
+    RateRule            = 7
+    RateSupplement      = 8
+    RateDiscount        = 9
+    RateDiscountGroup   = 10
+    Restriction         = 11
+    QueryTransform      = 12
+    RateCnx             = 13
+    Tax                 = 14
+    RateMarkup          = 15
+    AvlAlloc            = 16
+    AvlState            = 17
+    AvlInv              = 18
+    RateDiscountCat     = 19
+    RateSupplementalCat = 20
+    Config              = 21
+    CustomInfo          = 22
+    Other               = 23

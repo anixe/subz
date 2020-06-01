@@ -20,6 +20,10 @@
     "command": "subz_insert_section_contract_minimal"
   },
   {
+    "caption": "Insert [CONTRACT] section (spo)",
+    "command": "subz_insert_section_contract_spo"
+  },
+  {
     "caption": "Insert [DEF.HOTEL] section",
     "command": "subz_insert_section_def_hotel"
   },
@@ -48,6 +52,10 @@
     "command": "subz_insert_section_rate_discount"
   },
   {
+    "caption": "Insert [RATE.DISCOUNT_CAT] section",
+    "command": "subz_insert_section_rate_discount_cat"
+  },
+  {
     "caption": "Insert [RATE.DISCOUNT_GROUP] section",
     "command": "subz_insert_section_rate_discount_group"
   },
@@ -64,12 +72,24 @@
     "command": "subz_insert_section_rate_supplement"
   },
   {
-    "caption": "Insert [RATE.TAX] section",
-    "command": "subz_insert_section_rate_tax"
+    "caption": "Insert [RATE.SUPPLEMENT_CAT] section",
+    "command": "subz_insert_section_rate_supplement_cat"
+  },
+  {
+    "caption": "Insert [TAX] section",
+    "command": "subz_insert_section_tax"
+  },
+  {
+    "caption": "Insert [CONFIG] section",
+    "command": "subz_insert_section_config"
   },
   {
     "caption": "Insert [RESTRICTION] section",
     "command": "subz_insert_section_restriction"
+  },
+  {
+    "caption": "Insert [CUSTOM_INFO] section",
+    "command": "subz_insert_section_custom_info"
   },
   {
     "caption": "Insert [TEST] section",
