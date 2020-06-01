@@ -112,6 +112,10 @@
     "command": "subz_reformat_ariz"
   },
   {
+    "caption": "Insert Basic ARIZ ION example",
+    "command": "subz_insert_basic_ariz_ion_example"
+  },
+  {
     "caption": "Check aclr8 version",
     "command": "subz_aclr8_version"
   },

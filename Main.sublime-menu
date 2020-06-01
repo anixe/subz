@@ -184,6 +184,17 @@
             ]
           },
           {
+             "id": "subz_ariz_ion_examples",
+              "caption": "ARIZ ION Examples",
+              "children": [
+                {
+                  "caption": "Insert Basic ARIZ ION example",
+                  "command": "subz_insert_basic_ariz_ion_example",
+                  "id": "subz_insert_basic_ariz_ion_example"
+                }
+              ]
+          },
+          {
             "id": "subz_filter_ion",
             "caption": "Filter Ion",
             "children": [
