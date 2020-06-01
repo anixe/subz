@@ -112,6 +112,11 @@
                 "id": "subz_insert_section_tax"
               },
               {
+                "caption": "Insert [TAX_GROUP] section",
+                "command": "subz_insert_section_tax_group",
+                "id": "subz_insert_section_tax_group"
+              },
+              {
                 "caption": "Insert [RESTRICTION] section",
                 "command": "subz_insert_section_restriction",
                 "id": "subz_insert_section_restriction"

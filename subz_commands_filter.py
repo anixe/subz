@@ -60,7 +60,7 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             text = '\n'.join(lines_to_keep)
             self.create_new_tab(text)
         else:
-            text = '\nWrong number of arguments passed\nRequired three groups of arguments separated by \":\" -  search_arguments:section_arguments:text_to_search\nOptions:\n\tSearch arguments (can be separated by comma delimiter):\n\t\tr - regex search,\n\t\ts - string search (DEFAULT),\n\t\td - date search,\n\t\ti - lines including search text (DEFAULT),\n\t\te - lines excluding search text\n\tSections arguments (can be separated by comma delimiter):\n\t\tba - sections: RATE.BASE, RATE.SUPPLEMENT, RATE.DISCOUNT, RATE.RULE, RESTRICTION, DEF.ROOM,\n\t\tte - TEST,\n\t\tco - CONTRACT,\n\t\tdh - DEF.HOTEL,\n\t\tdm - DEF.MEAL,\n\t\tdr - DEF.ROOM,\n\t\trp - RATE.PLAN,\n\t\trb - RATE.BASE,\n\t\tru - RATE.RULE,\n\t\trs - RATE.SUPPLEMENT,\n\t\trd - RATE.DISCOUNT,\n\t\tdg - RATE.DISCOUNT_GROUP,\n\t\trr - RESTRICTION,\n\t\tqt - QUERY.TRANSFORM,\n\t\trc - RATE.CNX,\n\t\trt - RATE.TAX,\n\t\trm - RATE.MARKUP,\n\t\taa - AVL.ALLOC,\n\t\tas - AVL.STATE,\n\t\tai - AVL.INV,\nExample commands:\n\t:dr:P1:2 - search for lines including string P1:2 in DEF.ROOM section\n\tde:rb:20180101:20180110 - search for lines in RATE.BASE section which dose not contain passed date in section DATES column\n\tri:rsrd:P[1-2] - search lines matching regex in RATE.SUPPLEMENT and RATE.DISCOUNT sections'
+            text = '\nWrong number of arguments passed\nRequired three groups of arguments separated by \":\" -  search_arguments:section_arguments:text_to_search\nOptions:\n\tSearch arguments (can be separated by comma delimiter):\n\t\tr - regex search,\n\t\ts - string search (DEFAULT),\n\t\td - date search,\n\t\ti - lines including search text (DEFAULT),\n\t\te - lines excluding search text\n\tSections arguments (can be separated by comma delimiter):\n\t\tba - sections: RATE.BASE, RATE.SUPPLEMENT, RATE.DISCOUNT, RATE.RULE, RESTRICTION, DEF.ROOM,\n\t\tte - TEST,\n\t\tco - CONTRACT,\n\t\tdh - DEF.HOTEL,\n\t\tdm - DEF.MEAL,\n\t\tdr - DEF.ROOM,\n\t\trp - RATE.PLAN,\n\t\trb - RATE.BASE,\n\t\tru - RATE.RULE,\n\t\trs - RATE.SUPPLEMENT,\n\t\trd - RATE.DISCOUNT,\n\t\tdg - RATE.DISCOUNT_GROUP,\n\t\trr - RESTRICTION,\n\t\tqt - QUERY.TRANSFORM,\n\t\trc - RATE.CNX,\n\t\tta - TAX,\n\t\ttg - TAX_GROUP,\n\t\trm - RATE.MARKUP,\n\t\taa - AVL.ALLOC,\n\t\tas - AVL.STATE,\n\t\tai - AVL.INV,\nExample commands:\n\t:dr:P1:2 - search for lines including string P1:2 in DEF.ROOM section\n\tde:rb:20180101:20180110 - search for lines in RATE.BASE section which dose not contain passed date in section DATES column\n\tri:rsrd:P[1-2] - search lines matching regex in RATE.SUPPLEMENT and RATE.DISCOUNT sections'
             self.create_new_tab(text)
 
     def parse_section_args(self, arguments, sections_to_filter):
@@ -94,6 +94,8 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             sections_to_filter.append(SectionType.RateCnx)
         if 'ta' in arguments:
             sections_to_filter.append(SectionType.Tax)
+        if 'tg' in arguments:
+            sections_to_filter.append(SectionType.TaxGroup)
         if 'rm' in arguments:
             sections_to_filter.append(SectionType.RateMarkup)
         if 'aa' in arguments:
@@ -155,6 +157,8 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             return SectionType.RateCnx
         elif "[TAX]" in line:
             return SectionType.Tax
+        elif "[TAX_GROUP]" in line:
+            return SectionType.TaxGroup
         elif "[RATE.MARKUP]" in line:
             return SectionType.RateMarkup
         elif "[RESTRICTION]" in line:
@@ -301,4 +305,5 @@ class SectionType():
     RateSupplementalCat = 20
     Config              = 21
     CustomInfo          = 22
-    Other               = 23
+    TaxGroup            = 23
+    Other               = 24

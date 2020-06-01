@@ -149,6 +149,7 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
         qt - QUERY.TRANSFORM,
         rc - RATE.CNX,
         ta - TAX,
+        tg - TAX_GROUP,
         rm - RATE.MARKUP,
         aa - AVL.ALLOC,
         as - AVL.STATE,

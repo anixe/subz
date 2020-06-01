@@ -80,6 +80,10 @@
     "command": "subz_insert_section_tax"
   },
   {
+    "caption": "Insert [TAX_GROUP] section",
+    "command": "subz_insert_section_tax_group"
+  },
+  {
     "caption": "Insert [CONFIG] section",
     "command": "subz_insert_section_config"
   },
