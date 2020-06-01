@@ -59,3 +59,7 @@ get_output_view.output_view = None
 
 def is_package_installed(name):
   return is_file(os.path.join(sublime.installed_packages_path(), name + ".sublime-package"))
+
+def find_and_replace(self, edit, old_text, new_text):
+    header_region = self.view.find(old_text, 0)
+    self.view.replace(edit, header_region, new_text)

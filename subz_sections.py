@@ -204,16 +204,21 @@ CUSTOM_INFO = """[CUSTOM_INFO]
 
 """
 
-# section TEST is intentionally omitted
-SECTIONS_WITH_COLUMN_HEADERS = [AVL_ALLOC, AVL_INV, AVL_STATE, DEF_HOTEL, DEF_MEAL, DEF_ROOM, QUERY_TRANSFORM, RATE_BASE, RATE_CNX,
-RATE_DISCOUNT, RATE_DISCOUNT_GROUP, RATE_PLAN, RATE_RULE, RATE_SUPPLEMENT, TAX, TAX_GROUP, RESTRICTION, RATE_SUPPLEMENT_CAT, RATE_DISCOUNT_CAT, CONFIG, CUSTOM_INFO]
+SECTIONS_WITH_COLUMN_HEADERS = [AVL_ALLOC, AVL_INV, AVL_STATE, DEF_HOTEL, DEF_MEAL, DEF_ROOM, QUERY_TRANSFORM, RATE_BASE, RATE_CNX, RATE_DISCOUNT,
+  RATE_DISCOUNT_GROUP, RATE_PLAN, RATE_RULE, RATE_SUPPLEMENT, TAX, TAX_GROUP, RESTRICTION, RATE_SUPPLEMENT_CAT, RATE_DISCOUNT_CAT, CONFIG, CUSTOM_INFO, TEST]
+
+HEADER_REGEX = r"(\s*\\|.*\|\s*\n\|-+\|[-|]*\n)?"
 
 def split_section_to_lines(section):
-  lines = section.splitlines(True)
-  return lines
+  return section.splitlines(True)
 
-def section_name(section_lines):
-  return section_lines[0]
+def section_header_regex(section_lines):
+  section_name_regex = section_lines[0]
+  section_name_regex = section_name_regex.replace("[", "\[")
+  section_name_regex = section_name_regex.replace("]", "\]")
+  section_name_regex = section_name_regex.replace(".", "\.")
+
+  return section_name_regex + HEADER_REGEX
 
 def section_basic_header(section_lines):
   if section_lines[0].startswith("[CONTRACT]"):

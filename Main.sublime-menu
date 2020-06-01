@@ -139,6 +139,22 @@
             ]
           },
           {
+            "id": "subz_sections_headers",
+            "caption": "Sections headers",
+            "children": [
+              {
+                "caption": "Add all sections headers",
+                "command": "subz_add_all_sections_headers",
+                "id": "subz_add_all_sections_headers"
+              },
+              {
+                "caption": "Format all sections",
+                "command": "subz_format_all_sections",
+                "id": "subz_format_all_sections"
+              }
+            ]
+          },
+          {
             "id": "subz_aclr8",
             "caption": "Aclr8",
             "children": [

@@ -100,6 +100,14 @@
     "command": "subz_insert_section_test"
   },
   {
+    "caption": "Add all sections headers",
+    "command": "subz_add_all_sections_headers"
+  },
+  {
+    "caption": "Format all sections",
+    "command": "subz_format_all_sections"
+  },
+  {
     "caption": "Check aclr8 version",
     "command": "subz_aclr8_version"
   },

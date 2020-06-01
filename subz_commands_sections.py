@@ -107,3 +107,30 @@ class SubzInsertSectionCustomInfo(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, CUSTOM_INFO)
 
+class SubzAddAllSectionsHeaders(sublime_plugin.TextCommand):
+  def run(self, edit):
+    for section in SECTIONS_WITH_COLUMN_HEADERS:
+      section_lines = split_section_to_lines(section)
+      header_regex = section_header_regex(section_lines)
+      basic_header = section_basic_header(section_lines)
+
+      find_and_replace(self, edit, header_regex, basic_header)
+
+class SubzFormatAllSections(sublime_plugin.TextCommand):
+  def run(self, edit):
+    result = is_package_installed("Table Editor")
+
+    if result == False:
+      sublime.message_dialog("To format sections you need to install Package 'Table Editor'\nhttps://packagecontrol.io/packages/Table%20Editor")
+    else:
+      self.view.sel().clear()
+
+      header_regions = self.view.find_all(r"^\|-", 0)
+      number_of_regions = len(header_regions)
+
+      if number_of_regions == 0:
+        sublime.message_dialog("To format sections you need to add all section headers first\nLines with '|-' are required")
+      else:
+        for region in header_regions:
+          self.view.sel().add(region)
+        sublime.active_window().run_command('table_editor_next_field')
