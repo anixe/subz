@@ -37,6 +37,11 @@
                 "id": "subz_insert_section_contract_minimal"
               },
               {
+                "caption": "Insert [CONTRACT] section (spo)",
+                "command": "subz_insert_section_contract_spo",
+                "id": "subz_insert_section_contract_spo"
+              },
+              {
                 "caption": "Insert [DEF.HOTEL] section",
                 "command": "subz_insert_section_def_hotel",
                 "id": "subz_insert_section_def_hotel"
@@ -72,6 +77,11 @@
                 "id": "subz_insert_section_rate_discount"
               },
               {
+                "caption": "Insert [RATE.DISCOUNT_CAT] section",
+                "command": "subz_insert_section_rate_discount_cat",
+                "id": "subz_insert_section_rate_discount_cat"
+              },
+              {
                 "caption": "Insert [RATE.DISCOUNT_GROUP] section",
                 "command": "subz_insert_section_rate_discount_group",
                 "id": "subz_insert_section_rate_discount_group"
@@ -92,9 +102,19 @@
                 "id": "subz_insert_section_rate_supplement"
               },
               {
-                "caption": "Insert [RATE.TAX] section",
-                "command": "subz_insert_section_rate_tax",
-                "id": "subz_insert_section_rate_tax"
+                "caption": "Insert [RATE.SUPPLEMENT_CAT] section",
+                "command": "subz_insert_section_rate_supplement_cat",
+                "id": "subz_insert_section_rate_supplement_cat"
+              },
+              {
+                "caption": "Insert [TAX] section",
+                "command": "subz_insert_section_tax",
+                "id": "subz_insert_section_tax"
+              },
+              {
+                "caption": "Insert [TAX_GROUP] section",
+                "command": "subz_insert_section_tax_group",
+                "id": "subz_insert_section_tax_group"
               },
               {
                 "caption": "Insert [RESTRICTION] section",
@@ -102,9 +122,35 @@
                 "id": "subz_insert_section_restriction"
               },
               {
+                "caption": "Insert [CONFIG] section",
+                "command": "subz_insert_section_config",
+                "id": "subz_insert_section_config"
+              },
+              {
+                "caption": "Insert [CUSTOM_INFO] section",
+                "command": "subz_insert_section_custom_info",
+                "id": "subz_insert_section_custom_info"
+              },
+              {
                 "caption": "Insert [TEST] section",
                 "command": "subz_insert_section_test",
                 "id": "subz_insert_section_test"
+              }
+            ]
+          },
+          {
+            "id": "subz_sections_headers",
+            "caption": "Sections headers",
+            "children": [
+              {
+                "caption": "Add all sections headers",
+                "command": "subz_add_all_sections_headers",
+                "id": "subz_add_all_sections_headers"
+              },
+              {
+                "caption": "Format all sections",
+                "command": "subz_format_all_sections",
+                "id": "subz_format_all_sections"
               }
             ]
           },

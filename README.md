@@ -6,6 +6,8 @@ Sublime-Z is a plugin for Sublime Text 3 to edit and test ARIZ files.
 # Features:
 
 - Add any section using command or menu item
+- Add all section headers at once from single command or menu item
+- Format all sections - when [Table Editor](https://github.com/vkocubinsky/SublimeTableEditor) plugin is installed
 - Use aclr8 either from a binary or source code
 - Run aclr8 tests
 - Run single query
@@ -13,7 +15,7 @@ Sublime-Z is a plugin for Sublime Text 3 to edit and test ARIZ files.
 - Filter Ion
 - Make use of ANSI escape codes when [ANSIescape](https://github.com/aziz/SublimeANSI) plugin in installed
 
-![demo](https://github.com/synek317/subz/raw/master/img/demo.gif "Demo")
+![demo](https://github.com/anixe/subz/tree/master/img/demo.gif "Demo")
 
 # Installation:
 
@@ -29,7 +31,7 @@ The simplest way is to install this plugin using [Package Control](https://packa
   - type "install package" and press `Enter`
   - type "subz" and press `Enter`
 
-![installation guide](https://github.com/synek317/subz/raw/master/img/install.gif "Installation guide")
+![installation guide](https://github.com/anixe/subz/tree/master/img/install.gif "Installation guide")
 
 Alternatively you can clone this repository, rename it to `subz` and move it to your packages directory. Depending on your system it is:
 
@@ -71,7 +73,7 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
 2. If aclr8 is not found, you have to provide it in the input box that pops up at the bottom of the window and confirm with `[Enter]`
 3. When everything is configured correctly, the command and aclr8 version should be shown in the output panel at the bottom of the window
 
-![check aclr8 version](https://github.com/synek317/subz/raw/master/img/check_version.gif "Check aclr8 version")
+![check aclr8 version](https://github.com/anixe/subz/tree/master/img/check_version.gif "Check aclr8 version")
 
 ## Create ARIZ:
 
@@ -80,7 +82,7 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
   a. with mouse: choose `Tools -> Sublime-Z -> Insert Section` and then choose selected section
   b. with keyboard: press `[shift] + [ctrl] + p` to open command input and then type `Insert [TEST] section`. Replace `TEST` with any section name.
 
-![create ariz](https://github.com/synek317/subz/raw/master/img/create_ariz.gif "Create ARIZ")
+![create ariz](https://github.com/anixe/subz/tree/master/img/create_ariz.gif "Create ARIZ")
 
 ## Run single query
 
@@ -91,7 +93,7 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
 3. Fill the query in the input box (by default it shows up at the bottom of the window) and press `[Enter]` when ready
 4. The results should appear in the output panel.
 
-![run query](https://github.com/synek317/subz/raw/master/img/run_query.gif "Run query")
+![run query](https://github.com/anixe/subz/tree/master/img/run_query.gif "Run query")
 
 ## Run tests
 
@@ -102,7 +104,7 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
 3. If all tests pass, short message will appear in the output panel
 4. Otherwise, the output will appear in the `Sublime-Z Results` tab
 
-![run tests](https://github.com/synek317/subz/raw/master/img/run_tests.gif "Run tests")
+![run tests](https://github.com/anixe/subz/tree/master/img/run_tests.gif "Run tests")
 
 ## Change aclr8i path
 
@@ -141,18 +143,23 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
         rb - RATE.BASE,
         ru - RATE.RULE,
         rs - RATE.SUPPLEMENT,
+        sc - RATE.SUPPLEMENT_CAT,
         rd - RATE.DISCOUNT,
+        dc - RATE.DISCOUNT_CAT,
         dg - RATE.DISCOUNT_GROUP,
         rr - RESTRICTION,
         qt - QUERY.TRANSFORM,
         rc - RATE.CNX,
-        rt - RATE.TAX,
+        ta - TAX,
+        tg - TAX_GROUP,
         rm - RATE.MARKUP,
         aa - AVL.ALLOC,
         as - AVL.STATE,
         ai - AVL.INV,
+        cf - CONFIG,
+        ci - CUSTOM_INFO
     Example commands:
-      :dr:P1:2 - search for lines including string P1:2 in DEF.ROOM section
-      de:rb:20180101:20180110 - search for lines in RATE.BASE section which dose not contain passed date in section DATES column
-      ri:rsrd:P[1-2] - search lines matching regex in RATE.SUPPLEMENT and RATE.DISCOUNT sections
+      `:dr:P1:2` - search for lines including string `P1:2` in `DEF.ROOM` section
+      `de:rb:20180101:20180110` - search for lines in `RATE.BASE` section which dose not contain passed date in section `DATES` column
+      `ri:rs,rd:P[1-2]` - search lines matching regex in `RATE.SUPPLEMENT` and `RATE.DISCOUNT` sections
 3. To display help write `h` and press Enter

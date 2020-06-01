@@ -60,7 +60,7 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             text = '\n'.join(lines_to_keep)
             self.create_new_tab(text)
         else:
-            text = '\nWrong number of arguments passed\nRequired three groups of arguments separated by \":\" -  search_arguments:section_arguments:text_to_search\nOptions:\n\tSearch arguments (can be separated by comma delimiter):\n\t\tr - regex search,\n\t\ts - string search (DEFAULT),\n\t\td - date search,\n\t\ti - lines including search text (DEFAULT),\n\t\te - lines excluding search text\n\tSections arguments (can be separated by comma delimiter):\n\t\tba - sections: RATE.BASE, RATE.SUPPLEMENT, RATE.DISCOUNT, RATE.RULE, RESTRICTION, DEF.ROOM,\n\t\tte - TEST,\n\t\tco - CONTRACT,\n\t\tdh - DEF.HOTEL,\n\t\tdm - DEF.MEAL,\n\t\tdr - DEF.ROOM,\n\t\trp - RATE.PLAN,\n\t\trb - RATE.BASE,\n\t\tru - RATE.RULE,\n\t\trs - RATE.SUPPLEMENT,\n\t\trd - RATE.DISCOUNT,\n\t\tdg - RATE.DISCOUNT_GROUP,\n\t\trr - RESTRICTION,\n\t\tqt - QUERY.TRANSFORM,\n\t\trc - RATE.CNX,\n\t\trt - RATE.TAX,\n\t\trm - RATE.MARKUP,\n\t\taa - AVL.ALLOC,\n\t\tas - AVL.STATE,\n\t\tai - AVL.INV,\nExample commands:\n\t:dr:P1:2 - search for lines including string P1:2 in DEF.ROOM section\n\tde:rb:20180101:20180110 - search for lines in RATE.BASE section which dose not contain passed date in section DATES column\n\tri:rsrd:P[1-2] - search lines matching regex in RATE.SUPPLEMENT and RATE.DISCOUNT sections'
+            text = '\nWrong number of arguments passed\nRequired three groups of arguments separated by \":\" -  search_arguments:section_arguments:text_to_search\nOptions:\n\tSearch arguments (can be separated by comma delimiter):\n\t\tr - regex search,\n\t\ts - string search (DEFAULT),\n\t\td - date search,\n\t\ti - lines including search text (DEFAULT),\n\t\te - lines excluding search text\n\tSections arguments (can be separated by comma delimiter):\n\t\tba - sections: RATE.BASE, RATE.SUPPLEMENT, RATE.DISCOUNT, RATE.RULE, RESTRICTION, DEF.ROOM,\n\t\tte - TEST,\n\t\tco - CONTRACT,\n\t\tdh - DEF.HOTEL,\n\t\tdm - DEF.MEAL,\n\t\tdr - DEF.ROOM,\n\t\trp - RATE.PLAN,\n\t\trb - RATE.BASE,\n\t\tru - RATE.RULE,\n\t\trs - RATE.SUPPLEMENT,\n\t\trd - RATE.DISCOUNT,\n\t\tdg - RATE.DISCOUNT_GROUP,\n\t\trr - RESTRICTION,\n\t\tqt - QUERY.TRANSFORM,\n\t\trc - RATE.CNX,\n\t\tta - TAX,\n\t\ttg - TAX_GROUP,\n\t\trm - RATE.MARKUP,\n\t\taa - AVL.ALLOC,\n\t\tas - AVL.STATE,\n\t\tai - AVL.INV,\nExample commands:\n\t:dr:P1:2 - search for lines including string P1:2 in DEF.ROOM section\n\tde:rb:20180101:20180110 - search for lines in RATE.BASE section which dose not contain passed date in section DATES column\n\tri:rsrd:P[1-2] - search lines matching regex in RATE.SUPPLEMENT and RATE.DISCOUNT sections'
             self.create_new_tab(text)
 
     def parse_section_args(self, arguments, sections_to_filter):
@@ -92,8 +92,10 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             sections_to_filter.append(SectionType.QueryTransform)
         if 'rc' in arguments:
             sections_to_filter.append(SectionType.RateCnx)
-        if 'rt' in arguments:
-            sections_to_filter.append(SectionType.RateTax)
+        if 'ta' in arguments:
+            sections_to_filter.append(SectionType.Tax)
+        if 'tg' in arguments:
+            sections_to_filter.append(SectionType.TaxGroup)
         if 'rm' in arguments:
             sections_to_filter.append(SectionType.RateMarkup)
         if 'aa' in arguments:
@@ -102,6 +104,14 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             sections_to_filter.append(SectionType.AvlState)
         if 'ai' in arguments:
             sections_to_filter.append(SectionType.AvlInv)
+        if 'rdc' in arguments:
+            sections_to_filter.append(SectionType.RateDiscountCat)
+        if 'rsc' in arguments:
+            sections_to_filter.append(SectionType.RateSupplementalCat)
+        if 'cfg' in arguments:
+            sections_to_filter.append(SectionType.Config)
+        if 'ci' in arguments:
+            sections_to_filter.append(SectionType.CustomInfo)
         if 'ba' in arguments:
             sections_to_filter.append(SectionType.RateSupplement)
             sections_to_filter.append(SectionType.RateDiscount)
@@ -145,8 +155,10 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             return SectionType.RateDiscountGroup
         elif "[RATE.CNX]" in line:
             return SectionType.RateCnx
-        elif "[RATE.TAX]" in line:
-            return SectionType.RateTax
+        elif "[TAX]" in line:
+            return SectionType.Tax
+        elif "[TAX_GROUP]" in line:
+            return SectionType.TaxGroup
         elif "[RATE.MARKUP]" in line:
             return SectionType.RateMarkup
         elif "[RESTRICTION]" in line:
@@ -159,6 +171,14 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             return SectionType.AvlState
         elif "[AVL.INV]" in line:
             return SectionType.AvlInv
+        elif "[RATE.DISCOUNT_CAT]" in line:
+            return SectionType.RateDiscountCat
+        elif "[RATE.SUPPLEMENT_CAT]" in line:
+            return SectionType.RateSupplementalCat
+        elif "[CONFIG]" in line:
+            return SectionType.Config
+        elif "[CUSTOM_INFO]" in line:
+            return SectionType.CustomInfo
         else:
             return SectionType.Other
 
@@ -262,23 +282,28 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
         results_view.set_syntax_file(self.view.settings().get('syntax'))
 
 class SectionType():
-    Test              = 0
-    Contract          = 1
-    DefHotel          = 2
-    DefMeal           = 3
-    DefRoom           = 4
-    RatePlan          = 5
-    RateBase          = 6
-    RateRule          = 7
-    RateSupplement    = 8
-    RateDiscount      = 9
-    RateDiscountGroup = 10
-    Restriction       = 11
-    QueryTransform    = 12
-    RateCnx           = 13
-    RateTax           = 14
-    RateMarkup        = 15
-    AvlAlloc          = 16
-    AvlState          = 17
-    AvlInv            = 18
-    Other             = 19
+    Test                = 0
+    Contract            = 1
+    DefHotel            = 2
+    DefMeal             = 3
+    DefRoom             = 4
+    RatePlan            = 5
+    RateBase            = 6
+    RateRule            = 7
+    RateSupplement      = 8
+    RateDiscount        = 9
+    RateDiscountGroup   = 10
+    Restriction         = 11
+    QueryTransform      = 12
+    RateCnx             = 13
+    Tax                 = 14
+    RateMarkup          = 15
+    AvlAlloc            = 16
+    AvlState            = 17
+    AvlInv              = 18
+    RateDiscountCat     = 19
+    RateSupplementalCat = 20
+    Config              = 21
+    CustomInfo          = 22
+    TaxGroup            = 23
+    Other               = 24
