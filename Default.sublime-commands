@@ -108,6 +108,10 @@
     "command": "subz_format_all_sections"
   },
   {
+    "caption": "Reformat ARIZ",
+    "command": "subz_reformat_ariz"
+  },
+  {
     "caption": "Check aclr8 version",
     "command": "subz_aclr8_version"
   },

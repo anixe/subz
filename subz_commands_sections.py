@@ -107,6 +107,11 @@ class SubzInsertSectionCustomInfo(sublime_plugin.TextCommand):
   def run(self, edit):
     insert_ariz_section(self, edit, CUSTOM_INFO)
 
+class SubzReformatAriz(sublime_plugin.TextCommand):
+  def run(self, edit):
+    SubzAddAllSectionsHeaders.run(self, edit)
+    SubzFormatAllSections.run(self, edit)
+
 class SubzAddAllSectionsHeaders(sublime_plugin.TextCommand):
   def run(self, edit):
     for section in SECTIONS_WITH_COLUMN_HEADERS:
@@ -134,3 +139,4 @@ class SubzFormatAllSections(sublime_plugin.TextCommand):
         for region in header_regions:
           self.view.sel().add(region)
         sublime.active_window().run_command('table_editor_next_field')
+        self.view.sel().clear()

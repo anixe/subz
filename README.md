@@ -62,6 +62,7 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
 - Output panel (at the bottom of the window) can be quickly closed by pressing `[Esc]`
 - When some of the tests are failing, new tab will be opened. It ignores any changes and can be quickly closed by pressing `[ctrl] + w`
 - You *don't* have to save the `.ion` file in order to run tests or query
+- Use `Reformat ARIZ` command to add all sections headers and apply formatting
 
 # Recipes:
 

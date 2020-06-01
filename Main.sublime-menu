@@ -151,6 +151,11 @@
                 "caption": "Format all sections",
                 "command": "subz_format_all_sections",
                 "id": "subz_format_all_sections"
+              },
+              {
+                "caption": "Reformat ARIZ",
+                "command": "subz_reformat_ariz",
+                "id": "subz_reformat_ariz"
               }
             ]
           },
