@@ -22,6 +22,9 @@ class SubzAppendCommand(sublime_plugin.TextCommand):
 def insert_ariz_section(plugin, edit, header):
   plugin.view.insert(edit, plugin.view.sel()[0].begin(), header)
 
+def insert_ariz_example(plugin, edit, example):
+  plugin.view.insert(edit, plugin.view.sel()[0].begin(), example)
+
 def ask_user(caption, default_value, on_done, on_change=None, on_cancel=None):
   return sublime.Window.show_input_panel(sublime.active_window(), caption, default_value, on_done, on_change, on_cancel)
 

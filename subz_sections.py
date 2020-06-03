@@ -1,15 +1,16 @@
-AVL_ALLOC = """[AVL.ALLOC]
-| room | rules | iclass | inv_id |
-|------|-------|--------|--------|
+AVL_BUCKET_STATE = """[AVL.BUCKET_STATE]
+| dates | bucket_name | room | rules | count |
+|-------|-------------|------|-------|-------|
 * Caution: this is under development *
-|      |       |        |        |
+|       |             |      |       |       |
+
 """
 
 AVL_INV = """[AVL.INV]
-| dates | iclass | id |
-|-------|--------|----|
+| dates | rules | room | allotments | from_room | from_rules |
+|-------|-------|------|------------|-----------|------------|
 * Caution: this is under development *
-|       |        |    |
+|       |       |      |            |           |            |
 
 """
 
@@ -77,9 +78,9 @@ DEF_HOTEL = """[DEF.HOTEL]
 """
 
 DEF_MEAL = """[DEF.MEAL]
-| code | description | grp |
-|------|-------------|-----|
-|      |             |     |
+| code | description | grp | properties |
+|------|-------------|-----|------------|
+|      |             |     |            |
 
 """
 
@@ -91,11 +92,11 @@ DEF_ROOM = """[DEF.ROOM]
 """
 
 QUERY_TRANSFORM = """[QUERY.TRANSFORM]
-|  occupancy   | func | args | rate_rules |
-|--------------|------|------|------------|
-| A*C*         | ASC  |      |            |
-| C1[0:1]      | DEL  |      |            |
-| A1C1[14:255] | SUB  | A2   |            |
+|      occ     | func | args | rate |
+|--------------|------|------|------|
+| A*C*         | ASC  |      |      |
+| C1[0:1]      | DEL  |      |      |
+| A1C1[14:255] | SUB  | A2   |      |
 
 """
 
@@ -128,9 +129,9 @@ RATE_DISCOUNT_GROUP = """[RATE.DISCOUNT_GROUP]
 """
 
 RATE_PLAN = """[RATE.PLAN]
-| dates | code | description | rooms | rules | props |
-|-------|------|-------------|-------|-------|-------|
-|       |      |             |       |       |       |
+| dates | code | description | rooms | rules | properties |
+|-------|------|-------------|-------|-------|------------|
+|       |      |             |       |       |            |
 
 """
 
@@ -163,16 +164,16 @@ TAX_GROUP = """[TAX_GROUP]
 """
 
 RESTRICTION = """[RESTRICTION]
-| room | occupancy | meal | rp | forbid | remark | id |
+| room |    occ    | meal | rp | forbid | remark | id |
 |------|-----------|------|----|--------|--------|----|
 |      |           |      |    |        |        |  0 |
 
 """
 
 TEST = """[TEST]
-| query | total | comment |
-|-------|-------|---------|
-|       |       |         |
+|   query      |   total   | comment |
+|--------------|-----------|---------|
+| SAMPLE_QUERY | EUR100.00 |         |
 
 """
 
@@ -204,7 +205,7 @@ CUSTOM_INFO = """[CUSTOM_INFO]
 
 """
 
-SECTIONS_WITH_COLUMN_HEADERS = [AVL_ALLOC, AVL_INV, AVL_STATE, DEF_HOTEL, DEF_MEAL, DEF_ROOM, QUERY_TRANSFORM, RATE_BASE, RATE_CNX, RATE_DISCOUNT,
+SECTIONS_WITH_COLUMN_HEADERS = [AVL_BUCKET_STATE, AVL_INV, AVL_STATE, DEF_HOTEL, DEF_MEAL, DEF_ROOM, QUERY_TRANSFORM, RATE_BASE, RATE_CNX, RATE_DISCOUNT,
   RATE_DISCOUNT_GROUP, RATE_PLAN, RATE_RULE, RATE_SUPPLEMENT, TAX, TAX_GROUP, RESTRICTION, RATE_SUPPLEMENT_CAT, RATE_DISCOUNT_CAT, CONFIG, CUSTOM_INFO, TEST]
 
 HEADER_REGEX = r"(\s*\\|.*\|\s*\n\|-+\|[-|]*\n)?"
@@ -225,3 +226,14 @@ def section_basic_header(section_lines):
     return section_lines[0]
   else:
     return section_lines[0] + section_lines[1] + section_lines[2]
+
+def get_contract_section_string_type_value(view, field, default_value):
+  regex = field + r"\s?=\s?\".*\"\n"
+  region = view.find(regex, 0)
+  line = view.substr(region)
+
+  splitted_line = line.split('"')
+  if len(splitted_line) != 3:
+    return default_value
+
+  return splitted_line[1]

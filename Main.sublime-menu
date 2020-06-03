@@ -17,9 +17,9 @@
                 "id": "subz_insert_section_avl_alloc"
               },
               {
-                "caption": "Insert [AVL.INV] section",
-                "command": "subz_insert_section_avl_inv",
-                "id": "subz_insert_section_avl_inv"
+                "caption": "Insert [AVL.BUCKET_STATE] section",
+                "command": "subz_insert_section_avl_bucket_state",
+                "id": "subz_insert_section_avl_bucket_state"
               },
               {
                 "caption": "Insert [AVL.STATE] section",
@@ -151,6 +151,11 @@
                 "caption": "Format all sections",
                 "command": "subz_format_all_sections",
                 "id": "subz_format_all_sections"
+              },
+              {
+                "caption": "Reformat ARIZ",
+                "command": "subz_reformat_ariz",
+                "id": "subz_reformat_ariz"
               }
             ]
           },
@@ -177,6 +182,17 @@
                 "id": "subz_aclr8_version"
               }
             ]
+          },
+          {
+             "id": "subz_ariz_ion_examples",
+              "caption": "ARIZ ION Examples",
+              "children": [
+                {
+                  "caption": "Insert Basic ARIZ ION example",
+                  "command": "subz_insert_basic_ariz_ion_example",
+                  "id": "subz_insert_basic_ariz_ion_example"
+                }
+              ]
           },
           {
             "id": "subz_filter_ion",
@@ -245,6 +261,12 @@
                         "id": "subz_filter_ion_include_string_rate_supplement"
                       },
                       {
+                        "caption": "[RATE.SUPPLEMENT_CAT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:sc:" },
+                        "id": "subz_filter_ion_include_string_rate_supplement_cat"
+                      },
+                      {
                         "caption": "[RATE.DISCOUNT]",
                         "command": "subz_prompt_ion_filter_to_lines",
                         "args":  { "search_args": "si:rd:" },
@@ -255,6 +277,12 @@
                         "command": "subz_prompt_ion_filter_to_lines",
                         "args":  { "search_args": "si:dg:" },
                         "id": "subz_filter_ion_include_string_rate_discount_group"
+                      },
+                      {
+                        "caption": "[RATE.DISCOUNT_CAT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:dc:" },
+                        "id": "subz_filter_ion_include_string_rate_discount_cat"
                       },
                       {
                         "caption": "[RESTRICTION]",
@@ -275,10 +303,16 @@
                         "id": "subz_filter_ion_include_string_rate_cnx"
                       },
                       {
-                        "caption": "[RATE.TAX]",
+                        "caption": "[TAX]",
                         "command": "subz_prompt_ion_filter_to_lines",
-                        "args":  { "search_args": "si:rt:" },
-                        "id": "subz_filter_ion_include_string_rate_tax"
+                        "args":  { "search_args": "si:ta:" },
+                        "id": "subz_filter_ion_include_string_tax"
+                      },
+                      {
+                        "caption": "[TAX_GROUP]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:tg:" },
+                        "id": "subz_filter_ion_include_string_tax_group"
                       },
                       {
                         "caption": "[RATE.MARKUP]",
@@ -287,10 +321,10 @@
                         "id": "subz_filter_ion_include_string_rate_markup"
                       },
                       {
-                        "caption": "[AVL.ALLOC]",
+                        "caption": "[AVL.BUCKET_STATE]",
                         "command": "subz_prompt_ion_filter_to_lines",
-                        "args":  { "search_args": "si:aa:" },
-                        "id": "subz_filter_ion_include_string_avl_alloc"
+                        "args":  { "search_args": "si:ab:" },
+                        "id": "subz_filter_ion_include_string_avl_bucket_state"
                       },
                       {
                         "caption": "[AVL.STATE]",
@@ -303,6 +337,18 @@
                         "command": "subz_prompt_ion_filter_to_lines",
                         "args":  { "search_args": "si:ai" },
                         "id": "subz_filter_ion_include_string_avl_inv"
+                      },
+                      {
+                        "caption": "[CONFIG]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:cf" },
+                        "id": "subz_filter_ion_include_string_config"
+                      },
+                      {
+                        "caption": "[CUSTOM_INFO]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "si:ci" },
+                        "id": "subz_filter_ion_include_string_custom_info"
                       }
                     ]
                   },
@@ -365,6 +411,12 @@
                         "id": "subz_filter_ion_include_regex_rate_supplement"
                       },
                       {
+                        "caption": "[RATE.SUPPLEMENT_CAT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:sc:" },
+                        "id": "subz_filter_ion_include_regex_rate_supplement_cat"
+                      },
+                      {
                         "caption": "[RATE.DISCOUNT]",
                         "command": "subz_prompt_ion_filter_to_lines",
                         "args":  { "search_args": "ri:rd:" },
@@ -375,6 +427,12 @@
                         "command": "subz_prompt_ion_filter_to_lines",
                         "args":  { "search_args": "ri:dg:" },
                         "id": "subz_filter_ion_include_regex_rate_discount_group"
+                      },
+                      {
+                        "caption": "[RATE.DISCOUNT_CAT]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:dc:" },
+                        "id": "subz_filter_ion_include_regex_rate_discount_cat"
                       },
                       {
                         "caption": "[RESTRICTION]",
@@ -395,10 +453,16 @@
                         "id": "subz_filter_ion_include_regex_rate_cnx"
                       },
                       {
-                        "caption": "[RATE.TAX]",
+                        "caption": "[TAX]",
                         "command": "subz_prompt_ion_filter_to_lines",
-                        "args":  { "search_args": "ri:rt:" },
-                        "id": "subz_filter_ion_include_regex_rate_tax"
+                        "args":  { "search_args": "ri:ta:" },
+                        "id": "subz_filter_ion_include_regex_tax"
+                      },
+                      {
+                        "caption": "[TAX_GROUP]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:tg:" },
+                        "id": "subz_filter_ion_include_regex_tax_group"
                       },
                       {
                         "caption": "[RATE.MARKUP]",
@@ -407,10 +471,10 @@
                         "id": "subz_filter_ion_include_regex_rate_markup"
                       },
                       {
-                        "caption": "[AVL.ALLOC]",
+                        "caption": "[AVL.BUCKET_STATE]",
                         "command": "subz_prompt_ion_filter_to_lines",
-                        "args":  { "search_args": "ri:aa:" },
-                        "id": "subz_filter_ion_include_regex_avl_alloc"
+                        "args":  { "search_args": "ri:ab:" },
+                        "id": "subz_filter_ion_include_regex_avl_bucket_state"
                       },
                       {
                         "caption": "[AVL.STATE]",
@@ -423,6 +487,18 @@
                         "command": "subz_prompt_ion_filter_to_lines",
                         "args":  { "search_args": "ri:ai" },
                         "id": "subz_filter_ion_include_regex_avl_inv"
+                      },
+                      {
+                        "caption": "[CONFIG]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:cf" },
+                        "id": "subz_filter_ion_include_regex_config"
+                      },
+                      {
+                        "caption": "[CUSTOM_INFO]",
+                        "command": "subz_prompt_ion_filter_to_lines",
+                        "args":  { "search_args": "ri:ci" },
+                        "id": "subz_filter_ion_include_regex_custom_info"
                       }
                     ]
                   },
@@ -479,10 +555,10 @@
                         "id": "subz_filter_ion_include_date_rate_cnx"
                       },
                       {
-                        "caption": "[RATE.TAX]",
+                        "caption": "[TAX]",
                         "command": "subz_prompt_ion_filter_to_lines",
-                        "args":  { "search_args": "di:rt:" },
-                        "id": "subz_filter_ion_include_date_rate_tax"
+                        "args":  { "search_args": "di:ta:" },
+                        "id": "subz_filter_ion_include_date_tax"
                       },
                       {
                         "caption": "[RATE.MARKUP]",
@@ -491,10 +567,10 @@
                         "id": "subz_filter_ion_include_date_rate_markup"
                       },
                       {
-                        "caption": "[AVL.ALLOC]",
+                        "caption": "[AVL.BUCKET_STATE]",
                         "command": "subz_prompt_ion_filter_to_lines",
-                        "args":  { "search_args": "di:aa:" },
-                        "id": "subz_filter_ion_include_date_avl_alloc"
+                        "args":  { "search_args": "di:ab:" },
+                        "id": "subz_filter_ion_include_date_avl_bucket_state"
                       },
                       {
                         "caption": "[AVL.STATE]",
@@ -575,6 +651,12 @@
                       "id": "subz_filter_ion_exclude_string_rate_supplement"
                     },
                     {
+                      "caption": "[RATE.SUPPLEMENT_CAT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:sc:" },
+                      "id": "subz_filter_ion_exclude_string_rate_supplement_cat"
+                    },
+                    {
                       "caption": "[RATE.DISCOUNT]",
                       "command": "subz_prompt_ion_filter_to_lines",
                       "args":  { "search_args": "se:rd:" },
@@ -585,6 +667,12 @@
                       "command": "subz_prompt_ion_filter_to_lines",
                       "args":  { "search_args": "se:dg:" },
                       "id": "subz_filter_ion_exclude_string_rate_discount_group"
+                    },
+                    {
+                      "caption": "[RATE.DISCOUNT_CAT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:dc:" },
+                      "id": "subz_filter_ion_exclude_string_rate_discount_cat"
                     },
                     {
                       "caption": "[RESTRICTION]",
@@ -605,10 +693,16 @@
                       "id": "subz_filter_ion_exclude_string_rate_cnx"
                     },
                     {
-                      "caption": "[RATE.TAX]",
+                      "caption": "[TAX]",
                       "command": "subz_prompt_ion_filter_to_lines",
-                      "args":  { "search_args": "se:rt:" },
-                      "id": "subz_filter_ion_exclude_string_rate_tax"
+                      "args":  { "search_args": "se:ta:" },
+                      "id": "subz_filter_ion_exclude_string_tax"
+                    },
+                    {
+                      "caption": "[TAX_GROUP]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:tg:" },
+                      "id": "subz_filter_ion_exclude_string_tax_group"
                     },
                     {
                       "caption": "[RATE.MARKUP]",
@@ -617,10 +711,10 @@
                       "id": "subz_filter_ion_exclude_string_rate_markup"
                     },
                     {
-                      "caption": "[AVL.ALLOC]",
+                      "caption": "[AVL.BUCKET_STATE]",
                       "command": "subz_prompt_ion_filter_to_lines",
-                      "args":  { "search_args": "se:aa:" },
-                      "id": "subz_filter_ion_exclude_string_avl_alloc"
+                      "args":  { "search_args": "se:ab:" },
+                      "id": "subz_filter_ion_exclude_string_avl_bucket_state"
                     },
                     {
                       "caption": "[AVL.STATE]",
@@ -633,6 +727,18 @@
                       "command": "subz_prompt_ion_filter_to_lines",
                       "args":  { "search_args": "se:ai" },
                       "id": "subz_filter_ion_exclude_string_avl_inv"
+                    },
+                    {
+                      "caption": "[CONFIG]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:cf" },
+                      "id": "subz_filter_ion_exclude_string_config"
+                    },
+                    {
+                      "caption": "[CUSTOM_INFO]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "se:ci" },
+                      "id": "subz_filter_ion_exclude_string_custom_info"
                     }
                   ]
                   },
@@ -695,6 +801,12 @@
                       "id": "subz_filter_ion_exclude_regex_rate_supplement"
                     },
                     {
+                      "caption": "[RATE.SUPPLEMENT_CAT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:sc:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_supplement_cat"
+                    },
+                    {
                       "caption": "[RATE.DISCOUNT]",
                       "command": "subz_prompt_ion_filter_to_lines",
                       "args":  { "search_args": "re:rd:" },
@@ -705,6 +817,12 @@
                       "command": "subz_prompt_ion_filter_to_lines",
                       "args":  { "search_args": "re:dg:" },
                       "id": "subz_filter_ion_exclude_regex_rate_discount_group"
+                    },
+                    {
+                      "caption": "[RATE.DISCOUNT_CAT]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:dc:" },
+                      "id": "subz_filter_ion_exclude_regex_rate_discount_cat"
                     },
                     {
                       "caption": "[RESTRICTION]",
@@ -725,10 +843,16 @@
                       "id": "subz_filter_ion_exclude_regex_rate_cnx"
                     },
                     {
-                      "caption": "[RATE.TAX]",
+                      "caption": "[TAX]",
                       "command": "subz_prompt_ion_filter_to_lines",
-                      "args":  { "search_args": "re:rt:" },
-                      "id": "subz_filter_ion_exclude_regex_rate_tax"
+                      "args":  { "search_args": "re:ta:" },
+                      "id": "subz_filter_ion_exclude_regex_tax"
+                    },
+                    {
+                      "caption": "[TAX_GROUP]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:tg:" },
+                      "id": "subz_filter_ion_exclude_regex_tax_group"
                     },
                     {
                       "caption": "[RATE.MARKUP]",
@@ -737,10 +861,10 @@
                       "id": "subz_filter_ion_exclude_regex_rate_markup"
                     },
                     {
-                      "caption": "[AVL.ALLOC]",
+                      "caption": "[AVL.BUCKET_STATE]",
                       "command": "subz_prompt_ion_filter_to_lines",
-                      "args":  { "search_args": "re:aa:" },
-                      "id": "subz_filter_ion_exclude_regex_avl_alloc"
+                      "args":  { "search_args": "re:ab:" },
+                      "id": "subz_filter_ion_exclude_regex_avl_bucket_state"
                     },
                     {
                       "caption": "[AVL.STATE]",
@@ -753,6 +877,18 @@
                       "command": "subz_prompt_ion_filter_to_lines",
                       "args":  { "search_args": "re:ai" },
                       "id": "subz_filter_ion_exclude_regex_avl_inv"
+                    },
+                    {
+                      "caption": "[CONFIG]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:cf" },
+                      "id": "subz_filter_ion_exclude_regex_config"
+                    },
+                    {
+                      "caption": "[CUSTOM_INFO]",
+                      "command": "subz_prompt_ion_filter_to_lines",
+                      "args":  { "search_args": "re:ci" },
+                      "id": "subz_filter_ion_exclude_regex_custom_info"
                     }
                   ]
                   },
@@ -809,10 +945,10 @@
                       "id": "subz_filter_ion_exclude_date_rate_cnx"
                     },
                     {
-                      "caption": "[RATE.TAX]",
+                      "caption": "[TAX]",
                       "command": "subz_prompt_ion_filter_to_lines",
-                      "args":  { "search_args": "de:rt:" },
-                      "id": "subz_filter_ion_exclude_date_rate_tax"
+                      "args":  { "search_args": "de:ta:" },
+                      "id": "subz_filter_ion_exclude_date_tax"
                     },
                     {
                       "caption": "[RATE.MARKUP]",
@@ -821,10 +957,10 @@
                       "id": "subz_filter_ion_exclude_date_rate_markup"
                     },
                     {
-                      "caption": "[AVL.ALLOC]",
+                      "caption": "[AVL.BUCKET_STATE]",
                       "command": "subz_prompt_ion_filter_to_lines",
-                      "args":  { "search_args": "de:aa:" },
-                      "id": "subz_filter_ion_exclude_date_avl_alloc"
+                      "args":  { "search_args": "de:ab:" },
+                      "id": "subz_filter_ion_exclude_date_avl_bucket_state"
                     },
                     {
                       "caption": "[AVL.STATE]",

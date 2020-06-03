@@ -12,6 +12,7 @@ Sublime-Z is a plugin for Sublime Text 3 to edit and test ARIZ files.
 - Run aclr8 tests
 - Run single query
 - Check aclr8 version
+- Add ARIZ ION examples
 - Filter Ion
 - Make use of ANSI escape codes when [ANSIescape](https://github.com/aziz/SublimeANSI) plugin in installed
 
@@ -62,6 +63,7 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
 - Output panel (at the bottom of the window) can be quickly closed by pressing `[Esc]`
 - When some of the tests are failing, new tab will be opened. It ignores any changes and can be quickly closed by pressing `[ctrl] + w`
 - You *don't* have to save the `.ion` file in order to run tests or query
+- Use `Reformat ARIZ` command to add all sections headers and apply formatting
 
 # Recipes:
 
@@ -153,7 +155,7 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
         ta - TAX,
         tg - TAX_GROUP,
         rm - RATE.MARKUP,
-        aa - AVL.ALLOC,
+        ab - AVL.BUCKET_STATE,
         as - AVL.STATE,
         ai - AVL.INV,
         cf - CONFIG,

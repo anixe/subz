@@ -4,9 +4,11 @@ import datetime
 try:
   from .subz_tools_aclr8 import *
   from .subz_tools_subl import *
+  from .subz_sections import *
 except ValueError:
   from subz_tools_aclr8 import *
   from subz_tools_subl import *
+  from subz_sections import *
 
 class SubzAclr8Version(sublime_plugin.WindowCommand):
   def run(self):
@@ -38,9 +40,13 @@ class SubzAclr8Query(sublime_plugin.WindowCommand):
     today_formatted = today.strftime("%Y%m%d")
     checkin_formatted = checkin.strftime("%Y%m%d")
 
+    view = self.window.active_view()
+    hotel_code = get_contract_section_string_type_value(view, "hotel_code", "TEST")
+    source = get_contract_section_string_type_value(view, "source", "TEST")
+
     ask_user(
       "Enter the query: ",
-      SubzAclr8Query.last_query or "HB{0}$TEST:TEST/{1}+1/A1".format(today_formatted, checkin_formatted),
+      SubzAclr8Query.last_query or "HB{0}${1}:{2}/{3}+1/A1".format(today_formatted, source, hotel_code, checkin_formatted),
       self.run_aclr8_command
     )
 
