@@ -1,5 +1,7 @@
 import sublime
 import sublime_plugin
+import datetime
+
 try:
   from .subz_tools_subl import *
   from .subz_sections import *
@@ -89,7 +91,19 @@ class SubzInsertSectionRestriction(sublime_plugin.TextCommand):
 
 class SubzInsertSectionTest(sublime_plugin.TextCommand):
   def run(self, edit):
-    insert_ariz_section(self, edit, TEST)
+    today = datetime.date.today()
+    checkin = datetime.datetime(year=today.year + 1, month=1, day=1)
+
+    today_formatted = today.strftime("%Y%m%d")
+    checkin_formatted = checkin.strftime("%Y%m%d")
+
+    hotel_code = get_contract_section_string_type_value(self.view, "hotel_code", "TEST")
+    source = get_contract_section_string_type_value(self.view, "source", "TEST")
+
+    sample_query = "HB{0}${1}:{2}/{3}+1/A1".format(today_formatted, source, hotel_code, checkin_formatted)
+    test = TEST.replace("SAMPLE_QUERY", sample_query)
+
+    insert_ariz_section(self, edit, test)
 
 class SubzInsertSectionRateSupplementCat(sublime_plugin.TextCommand):
   def run(self, edit):

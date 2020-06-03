@@ -170,9 +170,9 @@ RESTRICTION = """[RESTRICTION]
 """
 
 TEST = """[TEST]
-| query | total | comment |
-|-------|-------|---------|
-|       |       |         |
+|   query      |   total   | comment |
+|--------------|-----------|---------|
+| SAMPLE_QUERY | EUR100.00 |         |
 
 """
 
