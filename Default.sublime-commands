@@ -4,8 +4,8 @@
     "command": "subz_insert_section_avl_alloc"
   },
   {
-    "caption": "Insert [AVL.INV] section",
-    "command": "subz_insert_section_avl_inv"
+    "caption": "Insert [AVL.BUCKET_STATE] section",
+    "command": "subz_insert_section_avl_bucket_state"
   },
   {
     "caption": "Insert [AVL.STATE] section",
