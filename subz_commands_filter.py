@@ -60,7 +60,7 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             text = '\n'.join(lines_to_keep)
             self.create_new_tab(text)
         else:
-            text = '\nWrong number of arguments passed\nRequired three groups of arguments separated by \":\" -  search_arguments:section_arguments:text_to_search\nOptions:\n\tSearch arguments (can be separated by comma delimiter):\n\t\tr - regex search,\n\t\ts - string search (DEFAULT),\n\t\td - date search,\n\t\ti - lines including search text (DEFAULT),\n\t\te - lines excluding search text\n\tSections arguments (can be separated by comma delimiter):\n\t\tba - sections: RATE.BASE, RATE.SUPPLEMENT, RATE.DISCOUNT, RATE.RULE, RESTRICTION, DEF.ROOM,\n\t\tte - TEST,\n\t\tco - CONTRACT,\n\t\tdh - DEF.HOTEL,\n\t\tdm - DEF.MEAL,\n\t\tdr - DEF.ROOM,\n\t\trp - RATE.PLAN,\n\t\trb - RATE.BASE,\n\t\tru - RATE.RULE,\n\t\trs - RATE.SUPPLEMENT,\n\t\trd - RATE.DISCOUNT,\n\t\tdg - RATE.DISCOUNT_GROUP,\n\t\trr - RESTRICTION,\n\t\tqt - QUERY.TRANSFORM,\n\t\trc - RATE.CNX,\n\t\tta - TAX,\n\t\ttg - TAX_GROUP,\n\t\trm - RATE.MARKUP,\n\t\taa - AVL.ALLOC,\n\t\tas - AVL.STATE,\n\t\tai - AVL.INV,\nExample commands:\n\t:dr:P1:2 - search for lines including string P1:2 in DEF.ROOM section\n\tde:rb:20180101:20180110 - search for lines in RATE.BASE section which dose not contain passed date in section DATES column\n\tri:rsrd:P[1-2] - search lines matching regex in RATE.SUPPLEMENT and RATE.DISCOUNT sections'
+            text = '\nWrong number of arguments passed\nRequired three groups of arguments separated by \":\" -  search_arguments:section_arguments:text_to_search\nOptions:\n\tSearch arguments (can be separated by comma delimiter):\n\t\tr - regex search,\n\t\ts - string search (DEFAULT),\n\t\td - date search,\n\t\ti - lines including search text (DEFAULT),\n\t\te - lines excluding search text\n\tSections arguments (can be separated by comma delimiter):\n\t\tba - sections: RATE.BASE, RATE.SUPPLEMENT, RATE.DISCOUNT, RATE.RULE, RESTRICTION, DEF.ROOM,\n\t\tte - TEST,\n\t\tco - CONTRACT,\n\t\tdh - DEF.HOTEL,\n\t\tdm - DEF.MEAL,\n\t\tdr - DEF.ROOM,\n\t\trp - RATE.PLAN,\n\t\trb - RATE.BASE,\n\t\tru - RATE.RULE,\n\t\trs - RATE.SUPPLEMENT,\n\t\trd - RATE.DISCOUNT,\n\t\tdg - RATE.DISCOUNT_GROUP,\n\t\trr - RESTRICTION,\n\t\tqt - QUERY.TRANSFORM,\n\t\trc - RATE.CNX,\n\t\tta - TAX,\n\t\ttg - TAX_GROUP,\n\t\trm - RATE.MARKUP,\n\t\tab - AVL.BUCKET_STATE,\n\t\tas - AVL.STATE,\n\t\tai - AVL.INV,\nExample commands:\n\t:dr:P1:2 - search for lines including string P1:2 in DEF.ROOM section\n\tde:rb:20180101:20180110 - search for lines in RATE.BASE section which dose not contain passed date in section DATES column\n\tri:rsrd:P[1-2] - search lines matching regex in RATE.SUPPLEMENT and RATE.DISCOUNT sections'
             self.create_new_tab(text)
 
     def parse_section_args(self, arguments, sections_to_filter):
@@ -98,17 +98,17 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             sections_to_filter.append(SectionType.TaxGroup)
         if 'rm' in arguments:
             sections_to_filter.append(SectionType.RateMarkup)
-        if 'aa' in arguments:
-            sections_to_filter.append(SectionType.AvlAlloc)
+        if 'ab' in arguments:
+            sections_to_filter.append(SectionType.AvlBucketState)
         if 'as' in arguments:
             sections_to_filter.append(SectionType.AvlState)
         if 'ai' in arguments:
             sections_to_filter.append(SectionType.AvlInv)
-        if 'rdc' in arguments:
+        if 'dc' in arguments:
             sections_to_filter.append(SectionType.RateDiscountCat)
-        if 'rsc' in arguments:
+        if 'sc' in arguments:
             sections_to_filter.append(SectionType.RateSupplementalCat)
-        if 'cfg' in arguments:
+        if 'cf' in arguments:
             sections_to_filter.append(SectionType.Config)
         if 'ci' in arguments:
             sections_to_filter.append(SectionType.CustomInfo)
@@ -165,8 +165,8 @@ class SubzIonFilterToLinesCommand(sublime_plugin.TextCommand):
             return SectionType.Restriction
         elif "[QUERY.TRANSFORM]" in line:
             return SectionType.QueryTransform
-        elif "[AVL.ALLOC]" in line:
-            return SectionType.AvlAlloc
+        elif "[AVL.BUCKET_STATE]" in line:
+            return SectionType.AvlBucketState
         elif "[AVL.STATE]" in line:
             return SectionType.AvlState
         elif "[AVL.INV]" in line:
@@ -298,7 +298,7 @@ class SectionType():
     RateCnx             = 13
     Tax                 = 14
     RateMarkup          = 15
-    AvlAlloc            = 16
+    AvlBucketState      = 16
     AvlState            = 17
     AvlInv              = 18
     RateDiscountCat     = 19

@@ -155,7 +155,7 @@ It may be good idea to first run `check aclr8 version` command and see if it wor
         ta - TAX,
         tg - TAX_GROUP,
         rm - RATE.MARKUP,
-        aa - AVL.ALLOC,
+        ab - AVL.BUCKET_STATE,
         as - AVL.STATE,
         ai - AVL.INV,
         cf - CONFIG,

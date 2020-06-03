@@ -9,9 +9,9 @@ except ValueError:
   from subz_tools_subl import *
   from subz_sections import *
 
-class SubzInsertSectionAvlAllocCommand(sublime_plugin.TextCommand):
+class SubzInsertSectionAvlBucketStateCommand(sublime_plugin.TextCommand):
   def run(self, edit):
-    insert_ariz_section(self, edit, AVL_ALLOC)
+    insert_ariz_section(self, edit, AVL_BUCKET_STATE)
 
 class SubzInsertSectionAvlInv(sublime_plugin.TextCommand):
   def run(self, edit):
