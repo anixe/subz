@@ -1,11 +1,11 @@
 [
   {
-    "caption": "Insert [AVL.ALLOC] section",
-    "command": "subz_insert_section_avl_alloc"
-  },
-  {
     "caption": "Insert [AVL.INV] section",
     "command": "subz_insert_section_avl_inv"
+  },
+  {
+    "caption": "Insert [AVL.BUCKET_STATE] section",
+    "command": "subz_insert_section_avl_bucket_state"
   },
   {
     "caption": "Insert [AVL.STATE] section",
@@ -18,6 +18,10 @@
   {
     "caption": "Insert [CONTRACT] section (minimal)",
     "command": "subz_insert_section_contract_minimal"
+  },
+  {
+    "caption": "Insert [CONTRACT] section (spo)",
+    "command": "subz_insert_section_contract_spo"
   },
   {
     "caption": "Insert [DEF.HOTEL] section",
@@ -48,6 +52,10 @@
     "command": "subz_insert_section_rate_discount"
   },
   {
+    "caption": "Insert [RATE.DISCOUNT_CAT] section",
+    "command": "subz_insert_section_rate_discount_cat"
+  },
+  {
     "caption": "Insert [RATE.DISCOUNT_GROUP] section",
     "command": "subz_insert_section_rate_discount_group"
   },
@@ -64,16 +72,48 @@
     "command": "subz_insert_section_rate_supplement"
   },
   {
-    "caption": "Insert [RATE.TAX] section",
-    "command": "subz_insert_section_rate_tax"
+    "caption": "Insert [RATE.SUPPLEMENT_CAT] section",
+    "command": "subz_insert_section_rate_supplement_cat"
+  },
+  {
+    "caption": "Insert [TAX] section",
+    "command": "subz_insert_section_tax"
+  },
+  {
+    "caption": "Insert [TAX_GROUP] section",
+    "command": "subz_insert_section_tax_group"
+  },
+  {
+    "caption": "Insert [CONFIG] section",
+    "command": "subz_insert_section_config"
   },
   {
     "caption": "Insert [RESTRICTION] section",
     "command": "subz_insert_section_restriction"
   },
   {
+    "caption": "Insert [CUSTOM_INFO] section",
+    "command": "subz_insert_section_custom_info"
+  },
+  {
     "caption": "Insert [TEST] section",
     "command": "subz_insert_section_test"
+  },
+  {
+    "caption": "Add all sections headers",
+    "command": "subz_add_all_sections_headers"
+  },
+  {
+    "caption": "Format all sections",
+    "command": "subz_format_all_sections"
+  },
+  {
+    "caption": "Reformat ARIZ",
+    "command": "subz_reformat_ariz"
+  },
+  {
+    "caption": "Insert Basic ARIZ ION example",
+    "command": "subz_insert_basic_ariz_ion_example"
   },
   {
     "caption": "Check aclr8 version",
