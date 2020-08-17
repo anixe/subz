@@ -1,20 +1,28 @@
 import sublime
 import sublime_plugin
 import datetime
-try:
-  from .subz_tools_aclr8 import *
-  from .subz_tools_subl import *
-  from .subz_sections import *
-except ValueError:
-  from subz_tools_aclr8 import *
-  from subz_tools_subl import *
-  from subz_sections import *
+from .subz_tools_aclr8 import *
+from .subz_tools_subl import *
+from .subz_sections import *
+from distutils.dir_util import copy_tree
+from shutil import rmtree
 
 class SubzAclr8Version(sublime_plugin.WindowCommand):
   def run(self):
     run_aclr8_command("--version", append_output_panel)
 
-class SubzAclr8Tests(sublime_plugin.WindowCommand):
+class SubzAclr8Base(sublime_plugin.WindowCommand):
+  def on_fail(self, path, is_temporary):
+    self.remove_temp(path, is_temporary)
+
+  def remove_temp(self, path, is_temporary):
+    if is_temporary:
+      if os.path.isdir(path):
+        rmtree(path)
+      else:
+        os.remove(path)
+
+class SubzAclr8Tests(SubzAclr8Base):
   def run(self):
     path, is_temporary = save_ion()
     run_aclr8_command("test " + path, lambda output: self.on_success(output, path, is_temporary), lambda: self.on_fail(path, is_temporary))
@@ -23,14 +31,31 @@ class SubzAclr8Tests(sublime_plugin.WindowCommand):
     append_output_panel(output + "All tests passed.")
     self.remove_temp(path, is_temporary)
 
-  def on_fail(self, path, is_temporary):
-    self.remove_temp(path, is_temporary)
+class SubzAclr8TestsCoupled(SubzAclr8Tests):
+  def run(self):
+    view = sublime.active_window().active_view()
+    is_temporary = False
 
-  def remove_temp(self, path, is_temporary):
-    if is_temporary:
-      os.remove(path)
+    if not ion_is_saved(view):
+      sublime.message_dialog("Please save all changes before running tests")
+    else:
+      file_path = view.file_name()
+      working_path = os.path.normpath(os.path.join(file_path, os.path.pardir))
 
-class SubzAclr8Query(sublime_plugin.WindowCommand):
+      if "coupled" not in working_path:
+        is_temporary = True
+        tmp_dir = os.path.join(tempfile.mkdtemp(), "coupled")
+
+        copy_tree(working_path, tmp_dir)
+
+        working_path = tmp_dir
+
+      if not working_path.endswith("/"):
+        working_path = "{}/".format(working_path)
+
+      run_aclr8_command("test " + working_path, lambda output: self.on_success(output, working_path, is_temporary), lambda: self.on_fail(working_path, is_temporary))
+
+class SubzAclr8Query(SubzAclr8Base):
   last_query = None
 
   def run(self):
@@ -59,9 +84,29 @@ class SubzAclr8Query(sublime_plugin.WindowCommand):
     append_output_panel(output)
     self.remove_temp(path, is_temporary)
 
-  def on_fail(self, path, is_temporary):
-    self.remove_temp(path, is_temporary)
+class SubzAclr8QueryCoupled(SubzAclr8Query):
+  last_query = None
 
-  def remove_temp(self, path, is_temporary):
-    if is_temporary:
-      os.remove(path)
+  def run_aclr8_command(self, query):
+    view = sublime.active_window().active_view()
+    is_temporary = False
+
+    if not ion_is_saved(view):
+      sublime.message_dialog("Please save all changes before running tests")
+    else:
+      file_path = view.file_name()
+      working_path = os.path.normpath(os.path.join(file_path, os.path.pardir))
+
+      if "coupled" not in working_path:
+        is_temporary = True
+        tmp_dir = os.path.join(tempfile.mkdtemp(), "coupled")
+
+        copy_tree(working_path, tmp_dir)
+
+        working_path = tmp_dir
+
+      if not working_path.endswith("/"):
+        working_path = "{}/".format(working_path)
+
+    SubzAclr8Query.last_query = query
+    run_aclr8_command("repl " + working_path, lambda output: self.on_success(output, working_path, is_temporary), lambda: self.on_fail(working_path, is_temporary), query)
